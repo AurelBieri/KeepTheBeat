@@ -1,0 +1,35 @@
+﻿@page "/login"
+@inject NavigationManager Navigation
+<PageTitle>Login</PageTitle>
+
+<h3>Login</h3>
+
+<p>Don't have an Account yet? <button @onclick="NavigateToRegister">Sign Up</button></p>
+<div>
+    <label for="Lusername">Username:</label>
+    <input id="Lusername" type="text" @bind="Lusername" />
+</div>
+
+<div>
+    <label for="Lpassword">Password:</label>
+    <input id="Lpassword" type="password" @bind="Lpassword" />
+</div>
+
+<button @onclick="login">Login</button>
+
+@code {
+    private string Lusername { get; set; }
+    private string Lpassword { get; set; }
+
+
+    private void login()
+    {
+        // Here you can add code to handle login logic
+        // For demonstration purposes, let's just print the entered username and password
+
+    }
+    private void NavigateToRegister()
+    {
+        Navigation.NavigateTo("/register");
+    }
+}

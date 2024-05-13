@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\KeepTheBeat\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|c:\\keepthebeat\\keepthebeat\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|solutionrelative:keepthebeat\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|c:\\keepthebeat\\keepthebeat\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|solutionrelative:keepthebeat\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|c:\\keepthebeat\\keepthebeat\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|solutionrelative:keepthebeat\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|c:\\keepthebeat\\keepthebeat\\pages\\search.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|solutionrelative:keepthebeat\\pages\\search.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|c:\\keepthebeat\\keepthebeat\\pages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|solutionrelative:keepthebeat\\pages\\create.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|c:\\keepthebeat\\keepthebeat\\pages\\playlist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|solutionrelative:keepthebeat\\pages\\playlist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|c:\\keepthebeat\\keepthebeat\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C2AB88B2-0498-4E5E-B1ED-4254C6B51334}|KeepTheBeat\\KeepTheBeat.csproj|solutionrelative:keepthebeat\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Playlist.razor",
+              "DocumentMoniker": "C:\\KeepTheBeat\\KeepTheBeat\\Pages\\Playlist.razor",
+              "RelativeDocumentMoniker": "KeepTheBeat\\Pages\\Playlist.razor",
+              "ToolTip": "C:\\KeepTheBeat\\KeepTheBeat\\Pages\\Playlist.razor",
+              "RelativeToolTip": "KeepTheBeat\\Pages\\Playlist.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-13T13:11:49.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.razor",
+              "DocumentMoniker": "C:\\KeepTheBeat\\KeepTheBeat\\Pages\\Create.razor",
+              "RelativeDocumentMoniker": "KeepTheBeat\\Pages\\Create.razor",
+              "ToolTip": "C:\\KeepTheBeat\\KeepTheBeat\\Pages\\Create.razor",
+              "RelativeToolTip": "KeepTheBeat\\Pages\\Create.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-13T13:11:35.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Search.razor",
+              "DocumentMoniker": "C:\\KeepTheBeat\\KeepTheBeat\\Pages\\Search.razor",
+              "RelativeDocumentMoniker": "KeepTheBeat\\Pages\\Search.razor",
+              "ToolTip": "C:\\KeepTheBeat\\KeepTheBeat\\Pages\\Search.razor",
+              "RelativeToolTip": "KeepTheBeat\\Pages\\Search.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-13T13:09:53.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\KeepTheBeat\\KeepTheBeat\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "KeepTheBeat\\Pages\\Login.razor",
+              "ToolTip": "C:\\KeepTheBeat\\KeepTheBeat\\Pages\\Login.razor",
+              "RelativeToolTip": "KeepTheBeat\\Pages\\Login.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-13T13:01:06.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\KeepTheBeat\\KeepTheBeat\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "KeepTheBeat\\Pages\\Home.razor",
+              "ToolTip": "C:\\KeepTheBeat\\KeepTheBeat\\Pages\\Home.razor",
+              "RelativeToolTip": "KeepTheBeat\\Pages\\Home.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAABvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-13T13:00:58.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\KeepTheBeat\\KeepTheBeat\\Shared\\MainLayout.razor",
+              "RelativeDocumentMoniker": "KeepTheBeat\\Shared\\MainLayout.razor",
+              "ToolTip": "C:\\KeepTheBeat\\KeepTheBeat\\Shared\\MainLayout.razor",
+              "RelativeToolTip": "KeepTheBeat\\Shared\\MainLayout.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-13T12:58:21.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\KeepTheBeat\\KeepTheBeat\\Shared\\NavMenu.razor",
+              "RelativeDocumentMoniker": "KeepTheBeat\\Shared\\NavMenu.razor",
+              "ToolTip": "C:\\KeepTheBeat\\KeepTheBeat\\Shared\\NavMenu.razor",
+              "RelativeToolTip": "KeepTheBeat\\Shared\\NavMenu.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-13T12:56:53.155Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

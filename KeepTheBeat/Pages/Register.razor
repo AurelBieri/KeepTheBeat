@@ -1,0 +1,49 @@
+﻿@page "/register"
+@inject NavigationManager Navigation
+
+<PageTitle>Register</PageTitle>
+
+<h3>Register</h3>
+
+<p>Already have an Account? <button @onclick="NavigateToLogin">Sign In</button></p>
+<div>
+    <label for="Rname">Name:</label>
+    <input type="text" id="Rname" @bind="Rname" />
+</div>
+<div>
+    <label for="Remail">Email:</label>
+    <input type="email" id="Remail" @bind="Remail" />
+</div>
+<div>
+    <label for="Rbirthday">Birthday:</label>
+    <input type="date" id="Rbirthday" @bind="Rbirthday" />
+</div>
+<div>
+    <label for="Rusername">Username:</label>
+    <input type="text" id="Rusername" @bind="Rusername" />
+</div>
+<div>
+    <label for="Rpassword">Password:</label>
+    <input type="password" id="Rpassword" @bind="Rpassword" />
+</div>
+
+<button @onclick="register">Register</button>
+
+
+@code {
+    private string Rusername { get; set; }
+    private string Rpassword { get; set; }
+    private string Remail { get; set; }
+    private string Rname { get; set; }
+    private DateTime Rbirthday { get; set; }
+
+    private void register()
+    {
+        // Registrierungslogik hier implementieren
+    }
+
+    private void NavigateToLogin()
+    {
+        Navigation.NavigateTo("/login");
+    }
+}
