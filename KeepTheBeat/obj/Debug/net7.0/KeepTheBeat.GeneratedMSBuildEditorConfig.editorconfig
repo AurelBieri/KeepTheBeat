@@ -9,63 +9,61 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = KeepTheBeat
 build_property.RootNamespace = KeepTheBeat
-build_property.ProjectDir = C:\KeepTheBeat\KeepTheBeat\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = C:\Temp\KeepTheBeatWorking\KeepTheBeat\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\KeepTheBeat\KeepTheBeat
+build_property.MSBuildProjectDirectory = C:\Temp\KeepTheBeatWorking\KeepTheBeat
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/KeepTheBeat/KeepTheBeat/App.razor]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KeepTheBeat/KeepTheBeat/Pages/Create.razor]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/Pages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KeepTheBeat/KeepTheBeat/Pages/Home.razor]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KeepTheBeat/KeepTheBeat/Pages/Login.razor]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KeepTheBeat/KeepTheBeat/Pages/Playlist.razor]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/Pages/Playlist.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWxpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KeepTheBeat/KeepTheBeat/Pages/Register.razor]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KeepTheBeat/KeepTheBeat/Pages/Search.razor]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/Pages/Search.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VhcmNoLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KeepTheBeat/KeepTheBeat/Shared/SurveyPrompt.razor]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KeepTheBeat/KeepTheBeat/_Imports.razor]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KeepTheBeat/KeepTheBeat/Shared/MainLayout.razor]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-8r8cu6qdv7
 
-[C:/KeepTheBeat/KeepTheBeat/Shared/NavMenu.razor]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-4prdomeshc
 
-[C:/KeepTheBeat/KeepTheBeat/Pages/Error.cshtml]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KeepTheBeat/KeepTheBeat/Pages/_Host.cshtml]
+[C:/Temp/KeepTheBeatWorking/KeepTheBeat/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
