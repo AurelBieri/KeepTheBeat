@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using System;
 using System.IO;
 
 public class DatabaseInitializer
@@ -29,45 +30,44 @@ public class DatabaseInitializer
 
     public void InitializeDatabase()
     {
-        using (var connection = new SqliteConnection(_connectionString))
+        try
         {
-            connection.Open();
-
-            // Define the path to the scripts directory
-            var scriptDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Scripts");
-
-            // Create the database if it does not exist
-            var createScriptPath = Path.Combine(scriptDirectory, "create_database.sql");
-            if (File.Exists(createScriptPath))
+            using (var connection = new SqliteConnection(_connectionString))
             {
-                var createScript = File.ReadAllText(createScriptPath);
-                using (var command = new SqliteCommand(createScript, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-            }
+                connection.Open();
 
-            // Update the database if an update script exists
-            var updateScriptPath = Path.Combine(scriptDirectory, "update_database.sql");
-            if (File.Exists(updateScriptPath))
-            {
-                var updateScript = File.ReadAllText(updateScriptPath);
-                using (var command = new SqliteCommand(updateScript, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-            }
+                // Define the path to the scripts directory
+                var scriptDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Database", "Scripts");
 
-            // Insert sample data if the script exists
-            var insertScriptPath = Path.Combine(scriptDirectory, "insert_sample_data.sql");
-            if (File.Exists(insertScriptPath))
-            {
-                var insertScript = File.ReadAllText(insertScriptPath);
-                using (var command = new SqliteCommand(insertScript, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
+                // Create the database if it does not exist
+                ExecuteScript(connection, scriptDirectory, "create_database.sql");
+
+                // Insert sample data if the script exists
+                ExecuteScript(connection, scriptDirectory, "insert_sample_data.sql");
             }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error initializing database: {ex.Message}");
+            throw;
+        }
+    }
+
+    private void ExecuteScript(SqliteConnection connection, string scriptDirectory, string scriptFileName)
+    {
+        var scriptPath = Path.Combine(scriptDirectory, scriptFileName);
+        if (File.Exists(scriptPath))
+        {
+            var script = File.ReadAllText(scriptPath);
+            Console.WriteLine($"Executing script: {scriptFileName}");
+            using (var command = new SqliteCommand(script, connection))
+            {
+                command.ExecuteNonQuery();
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Script file not found: {scriptFileName}");
         }
     }
 }
