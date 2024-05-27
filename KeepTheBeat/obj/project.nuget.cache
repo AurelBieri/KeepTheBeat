@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1yiJRoEK25xxpkOwgxyKS3Ukg61ZRCwh5vAab64HSGn57eYOCPHNiOepG5czQcsuXAIOitFDE8Ybx8peqzOGOA==",
+  "dgSpecHash": "hHW1P6zu9jjN6ZyC3P0bIaprxoN1b03NCPipit2nlMd7hjrDpMIAErTQ9UgGyn2MbWfQ4eQ9C2jyDiHCgy1tRg==",
   "success": true,
-  "projectFilePath": "C:\\Temp\\KeepTheBeatWorking\\KeepTheBeat\\KeepTheBeat.csproj",
+  "projectFilePath": "C:\\Temp\\Neuer Ordner\\KeepTheBeat\\KeepTheBeat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xbloc\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\xbloc\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

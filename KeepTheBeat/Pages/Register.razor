@@ -1,5 +1,9 @@
 ﻿@page "/register"
 @inject NavigationManager Navigation
+@using Keep_The_Beat.Classes;
+@using KeepTheBeat.Database.Services;
+@inject UserService UserService
+
 
 <PageTitle>Register</PageTitle>
 
@@ -7,8 +11,12 @@
 
 <p>Already have an Account? <button @onclick="NavigateToLogin">Sign In</button></p>
 <div>
-    <label for="Rname">Name:</label>
-    <input type="text" id="Rname" @bind="Rname" />
+    <label for="Rfirstname">Firstname:</label>
+    <input type="text" id="Rfirstname" @bind="Rfirstname" />
+</div>
+<div>
+    <label for="Rlastname">Lastname:</label>
+    <input type="text" id="Rlastname" @bind="Rlastname" />
 </div>
 <div>
     <label for="Remail">Email:</label>
@@ -34,12 +42,14 @@
     private string Rusername { get; set; }
     private string Rpassword { get; set; }
     private string Remail { get; set; }
-    private string Rname { get; set; }
+    private string Rfirstname { get; set; }
+    private string Rlastname { get; set; }
     private DateTime Rbirthday { get; set; }
 
-    private void register()
+    private async Task register()
     {
-        // Registrierungslogik hier implementieren
+        User user = new User(Rusername, Rpassword, Remail, Rfirstname, Rlastname);
+        await UserService.AddUser(user);
     }
 
     private void NavigateToLogin()

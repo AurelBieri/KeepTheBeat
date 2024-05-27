@@ -36,14 +36,13 @@ public class DatabaseInitializer
             {
                 connection.Open();
 
-                // Define the path to the scripts directory
                 var scriptDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Database", "Scripts");
 
-                // Create the database if it does not exist
                 ExecuteScript(connection, scriptDirectory, "create_database.sql");
 
-                // Insert sample data if the script exists
-                ExecuteScript(connection, scriptDirectory, "insert_sample_data.sql");
+                ExecuteScript(connection, scriptDirectory, "update_database.sql");
+
+                //ExecuteScript(connection, scriptDirectory, "insert_sample_data.sql");
             }
         }
         catch (Exception ex)
