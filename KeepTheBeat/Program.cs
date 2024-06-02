@@ -13,7 +13,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 
 // Register UserService
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddSingleton<UserService>(new UserService(connectionString));
+builder.Services.AddScoped<UserService>(serviceProvider => new UserService(connectionString));
 
 var app = builder.Build();
 

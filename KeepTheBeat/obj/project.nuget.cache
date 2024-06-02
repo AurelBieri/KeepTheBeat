@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hHW1P6zu9jjN6ZyC3P0bIaprxoN1b03NCPipit2nlMd7hjrDpMIAErTQ9UgGyn2MbWfQ4eQ9C2jyDiHCgy1tRg==",
+  "dgSpecHash": "VBS9uN63QWysrjpj7DjEle2x/YT1usuculD3HRrJH2OFkBfrHvIyhvJ9pWcGdGZojFuac0tNXrP3ZFE3YUP5eg==",
   "success": true,
-  "projectFilePath": "C:\\Temp\\Neuer Ordner\\KeepTheBeat\\KeepTheBeat.csproj",
+  "projectFilePath": "C:\\Temp\\beatbeatkeepit\\KeepTheBeat\\KeepTheBeat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xbloc\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\xbloc\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\xbloc\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\xbloc\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\xbloc\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\xbloc\\.nuget\\packages\\microsoft.data.sqlclient\\5.2.0\\microsoft.data.sqlclient.5.2.0.nupkg.sha512",

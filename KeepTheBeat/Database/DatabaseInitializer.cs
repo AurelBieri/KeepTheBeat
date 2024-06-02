@@ -40,7 +40,7 @@ public class DatabaseInitializer
 
                 ExecuteScript(connection, scriptDirectory, "create_database.sql");
 
-                ExecuteScript(connection, scriptDirectory, "update_database.sql");
+                // ExecuteScript(connection, scriptDirectory, "update_database.sql");
 
                 //ExecuteScript(connection, scriptDirectory, "insert_sample_data.sql");
             }

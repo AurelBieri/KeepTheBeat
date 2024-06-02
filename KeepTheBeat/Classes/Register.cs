@@ -8,6 +8,7 @@
 
         public string _Rname { get; set; }
         public DateTime _Rbirthday { get; set; }
+
         public Register(string Rusername, string Rpassword, string Remail, string Rname, DateTime Rbirthday)
         {
 
