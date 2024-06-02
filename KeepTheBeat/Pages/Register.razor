@@ -1,45 +1,122 @@
 ﻿@page "/register"
 @inject NavigationManager Navigation
+@using Keep_The_Beat.Classes
+@using KeepTheBeat.Database.Services
+@inject UserService UserService
 
 <PageTitle>Register</PageTitle>
 
-<h3>Register</h3>
+<div class="container mt-4">
+    <h3>Register</h3>
+    <p>Already have an Account? <button class="btn btn-link" @onclick="NavigateToLogin">Sign In</button></p>
 
-<p>Already have an Account? <button @onclick="NavigateToLogin">Sign In</button></p>
-<div>
-    <label for="Rname">Name:</label>
-    <input type="text" id="Rname" @bind="Rname" />
-</div>
-<div>
-    <label for="Remail">Email:</label>
-    <input type="email" id="Remail" @bind="Remail" />
-</div>
-<div>
-    <label for="Rbirthday">Birthday:</label>
-    <input type="date" id="Rbirthday" @bind="Rbirthday" />
-</div>
-<div>
-    <label for="Rusername">Username:</label>
-    <input type="text" id="Rusername" @bind="Rusername" />
-</div>
-<div>
-    <label for="Rpassword">Password:</label>
-    <input type="password" id="Rpassword" @bind="Rpassword" />
-</div>
+    <div class="form-group">
+        <label for="Rfirstname">Firstname:</label>
+        <input type="text" class="form-control" id="Rfirstname" @bind="Rfirstname" />
+        @if (!string.IsNullOrEmpty(firstnameError))
+        {
+            <span class="text-danger">@firstnameError</span>
+        }
+    </div>
+    <div class="form-group">
+        <label for="Rlastname">Lastname:</label>
+        <input type="text" class="form-control" id="Rlastname" @bind="Rlastname" />
+        @if (!string.IsNullOrEmpty(lastnameError))
+        {
+            <span class="text-danger">@lastnameError</span>
+        }
+    </div>
+    <div class="form-group">
+        <label for="Remail">Email:</label>
+        <input type="email" class="form-control" id="Remail" @bind="Remail" />
+        @if (!string.IsNullOrEmpty(emailError))
+        {
+            <span class="text-danger">@emailError</span>
+        }
+    </div>
+    <div class="form-group">
+        <label for="Rbirthday">Birthday:</label>
+        <input type="date" class="form-control" id="Rbirthday" @bind="Rbirthday" />
+    </div>
+    <div class="form-group">
+        <label for="Rusername">Username:</label>
+        <input type="text" class="form-control" id="Rusername" @bind="Rusername" />
+        @if (!string.IsNullOrEmpty(usernameError))
+        {
+            <span class="text-danger">@usernameError</span>
+        }
+    </div>
+    <div class="form-group">
+        <label for="Rpassword">Password:</label>
+        <input type="password" class="form-control" id="Rpassword" @bind="Rpassword" />
+        @if (!string.IsNullOrEmpty(passwordError))
+        {
+            <span class="text-danger">@passwordError</span>
+        }
+    </div>
 
-<button @onclick="register">Register</button>
+    <button class="btn btn-primary" @onclick="register">Register</button>
+</div>
 
 
 @code {
     private string Rusername { get; set; }
     private string Rpassword { get; set; }
     private string Remail { get; set; }
-    private string Rname { get; set; }
+    private string Rfirstname { get; set; }
+    private string Rlastname { get; set; }
     private DateTime Rbirthday { get; set; }
+    private string emailError, passwordError, firstnameError, lastnameError, birthdayError, usernameError;
 
-    private void register()
+    private bool ValidateFields()
     {
-        // Registrierungslogik hier implementieren
+        bool isValid = true;
+        if (string.IsNullOrWhiteSpace(Rfirstname)) { firstnameError = "Firstname is required."; isValid = false; }
+        else { firstnameError = null; }
+        if (string.IsNullOrWhiteSpace(Rlastname)) { lastnameError = "Lastname is required."; isValid = false; }
+        else { lastnameError = null; }
+        if (string.IsNullOrWhiteSpace(Rusername)) { usernameError = "Username is required."; isValid = false; }
+        else { usernameError = null; }
+        if (string.IsNullOrWhiteSpace(Remail) || !IsValidEmail(Remail)) { isValid = false; } 
+        if (string.IsNullOrWhiteSpace(Rpassword) || !IsValidPassword(Rpassword)) { isValid = false; }
+
+        return isValid;
+    }
+
+    private bool IsValidEmail(string email)
+    {
+        try
+        {
+            var addr = new System.Net.Mail.MailAddress(email);
+            emailError = null;
+            return addr.Address == email;
+        }
+        catch
+        {
+            emailError = "Invalid email format";
+            return false;
+        }
+    }
+
+    private bool IsValidPassword(string password)
+    {
+        if (string.IsNullOrWhiteSpace(password) || password.Length < 8)
+        {
+            passwordError = "Password must be at least 8 characters long";
+            return false;
+        }
+        passwordError = null;
+        return true;
+    }
+
+    private async Task register()
+    {
+        if (ValidateFields())
+        {
+            User user = new User(Rusername, Rpassword, Remail, Rfirstname, Rlastname, Rbirthday);
+            await UserService.AddUser(user);
+            NavigateToLogin();
+        }
     }
 
     private void NavigateToLogin()
@@ -47,3 +124,4 @@
         Navigation.NavigateTo("/login");
     }
 }
+

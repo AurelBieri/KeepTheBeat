@@ -1,33 +1,49 @@
 ﻿@page "/login"
 @inject NavigationManager Navigation
+@inject Database.Services.UserService userService
 <PageTitle>Login</PageTitle>
 
-<h3>Login</h3>
+<div class="container mt-4">
+    <h3>Login</h3>
+    <p>Don't have an Account yet? <button class="btn btn-link" @onclick="NavigateToRegister">Sign Up</button></p>
 
-<p>Don't have an Account yet? <button @onclick="NavigateToRegister">Sign Up</button></p>
-<div>
-    <label for="Lusername">Username:</label>
-    <input id="Lusername" type="text" @bind="Lusername" />
+    <div class="form-group">
+        <label for="Lusername">Username:</label>
+        <input id="Lusername" type="text" class="form-control" @bind="Lusername" />
+    </div>
+
+    <div class="form-group">
+        <label for="Lpassword">Password:</label>
+        <input id="Lpassword" type="password" class="form-control" @bind="Lpassword" />
+    </div>
+
+    @if (!string.IsNullOrEmpty(ErrorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ErrorMessage
+        </div>
+    }
+
+    <button class="btn btn-primary" @onclick="PerformLogin">Login</button>
 </div>
-
-<div>
-    <label for="Lpassword">Password:</label>
-    <input id="Lpassword" type="password" @bind="Lpassword" />
-</div>
-
-<button @onclick="login">Login</button>
 
 @code {
     private string Lusername { get; set; }
     private string Lpassword { get; set; }
+    private string ErrorMessage { get; set; }
 
-
-    private void login()
+    private async Task PerformLogin()
     {
-        // Here you can add code to handle login logic
-        // For demonstration purposes, let's just print the entered username and password
-
+        if (await userService.Login(Lusername, Lpassword))
+        {
+            Navigation.NavigateTo("/search");
+        }
+        else
+        {
+            ErrorMessage = "Invalid username or password.";
+        }
     }
+
     private void NavigateToRegister()
     {
         Navigation.NavigateTo("/register");
