@@ -25,9 +25,9 @@ namespace KeepTheBeat.Database.Services
                 {
                     command.CommandText =
                     @"
-            INSERT INTO Song (Title, Duration, Album, IsFavorite, ReleaseYear, FileNamen, FileContent)
-            VALUES ($Title, $Duration, $Album, $IsFavorite, $ReleaseYear, $FileNamen, $FileContent);
-            ";
+                    INSERT INTO Song (Title, Duration, Album, IsFavorite, ReleaseYear, FileNamen, FileContent)
+                    VALUES ($Title, $Duration, $Album, $IsFavorite, $ReleaseYear, $FileNamen, $FileContent);
+                    ";
 
                     command.Parameters.AddWithValue("$Title", song._titel ?? (object)DBNull.Value); 
                     command.Parameters.AddWithValue("$Duration", song._duration.HasValue ? (object)song._duration.Value : DBNull.Value);

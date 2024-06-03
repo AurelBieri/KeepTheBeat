@@ -1,5 +1,10 @@
 ﻿@page "/main"
 @using Microsoft.AspNetCore.Components.Web
+@using Keep_The_Beat.Classes;
+@using Database.Services;
+@inject IJSRuntime JSRuntime
+@inject SongService SongService
+
 <h1 style="display: flex;
     justify-content: center;
     align-items: center;
@@ -12,28 +17,86 @@
     <button @onclick="SearchSong">Suchen</button>
 </div>
 
-@if (!string.IsNullOrEmpty(result))
+@if (filteredSongs.Any())
+{
+    <div class="search-results">
+        @foreach (var song in filteredSongs)
+        {
+            <div class="song-item">
+                <span>@song._titel by @song._artist</span>
+                <button @onclick="() => PlaySong(song)">Play</button>
+            </div>
+        }
+    </div>
+}
+else if (!string.IsNullOrEmpty(searchQuery))
 {
     <div class="search-result">
-        @result
+        Keine Ergebnisse für: @searchQuery
     </div>
 }
 
+<audio id="audioPlayer" controls style="display:none;"></audio>
+
+<div class="play-menu" style="position: fixed; bottom: 0; left: 0; right: 0; background-color: #333; color: white; padding: 10px; display: flex; align-items: center;">
+    @if (currentSong != null)
+    {
+        <div style="flex: 1;">
+            <strong>@currentSong._titel</strong> by @currentSong._artist
+        </div>
+        <button @onclick="PauseSong">Pause</button>
+        <button @onclick="ResumeSong">Play</button>
+        <button @onclick="StopSong">Stop</button>
+    }
+</div>
+
 @code {
     private string searchQuery = string.Empty;
-    private string result;
+    private List<Song> allSongs = new();
+    private List<Song> filteredSongs = new();
+    private Song currentSong;
+
+    protected override async Task OnInitializedAsync()
+    {
+        allSongs = await SongService.GetSongs();
+        filteredSongs = allSongs;
+    }
 
     private void SearchSong()
     {
         if (!string.IsNullOrEmpty(searchQuery))
         {
-            // Hier wird später die Funktion zur Suche in der Datenbank eingebaut
-            result = $"Ergebnisse für: {searchQuery}";
+            filteredSongs = allSongs.Where(song =>
+                song._titel.Contains(searchQuery, StringComparison.OrdinalIgnoreCase) ||
+                song._artist.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)).ToList();
         }
         else
         {
-            result = "Bitte geben Sie einen Suchbegriff ein.";
+            filteredSongs = allSongs;
         }
     }
-}
 
+    private async void PlaySong(Song song)
+    {
+        currentSong = song;
+        var base64 = Convert.ToBase64String(song.FileContent);
+        var audioSrc = $"data:audio/mp3;base64,{base64}";
+        await JSRuntime.InvokeVoidAsync("playAudio", audioSrc);
+    }
+
+    private async void PauseSong()
+    {
+        await JSRuntime.InvokeVoidAsync("pauseAudio");
+    }
+
+    private async void ResumeSong()
+    {
+        await JSRuntime.InvokeVoidAsync("resumeAudio");
+    }
+
+    private async void StopSong()
+    {
+        currentSong = null;
+        await JSRuntime.InvokeVoidAsync("stopAudio");
+    }
+}
