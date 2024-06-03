@@ -1,0 +1,79 @@
+﻿@page "/upload-song"
+@using NAudio.Wave
+@using Keep_The_Beat.Classes;
+@using KeepTheBeat.Database.Services;
+@inject SongService SongService
+
+<h3>Upload a Song</h3>
+
+<EditForm Model="@song" OnValidSubmit="HandleValidSubmit">
+    <InputFile OnChange="HandleFileSelected" accept=".mp3" />
+    <div>
+        <label>Title:</label>
+        <InputText @bind-Value="song._titel" />
+    </div>
+    <div>
+        <label>Artist:</label>
+        <InputText @bind-Value="song._artist" />
+    </div>
+    <div>
+        <label>Album:</label>
+        <InputText @bind-Value="song._album" />
+    </div>
+    <div>
+        <label>Is Favorite:</label>
+        <InputCheckbox @bind-Value="song._isfavorite" />
+    </div>
+    <div>
+        <label>Release Year:</label>
+        <InputNumber @bind-Value="song._releaseyear" />
+    </div>
+    <button type="submit">Upload</button>
+</EditForm>
+
+@code {
+    private Song song = new Song();
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file != null)
+        {
+            song.FileName = file.Name;
+            using (var stream = file.OpenReadStream(10240000)) // Limit the size to 10 MB
+            {
+                MemoryStream ms = new MemoryStream();
+                await stream.CopyToAsync(ms);
+                song.FileContent = ms.ToArray();
+
+                ms.Position = 0;
+
+                try
+                {
+                    using (var mp3Reader = new Mp3FileReader(ms))
+                    {
+                        song._duration = (float)mp3Reader.TotalTime.TotalSeconds;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error reading MP3 file: " + ex.Message);
+                }
+            }
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (song._duration.HasValue && song._duration > 0)
+        {
+            await SongService.AddSong(song);
+            song = new Song(); // Reset the form after submission
+        }
+        else
+        {
+            // Handle cases where duration could not be determined
+            Console.WriteLine("Failed to determine the duration of the song.");
+        }
+    }
+}

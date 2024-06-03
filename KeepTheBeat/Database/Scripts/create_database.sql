@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS Artist (
 CREATE TABLE IF NOT EXISTS Song (
     SongId INTEGER PRIMARY KEY AUTOINCREMENT,
     Title TEXT NOT NULL,
-    Duration REAL NOT NULL,  
+    Duration REAL,  
     Album TEXT,
     IsFavorite INTEGER NOT NULL, 
     ReleaseYear INTEGER

@@ -14,6 +14,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 // Register UserService
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddScoped<UserService>(serviceProvider => new UserService(connectionString));
+builder.Services.AddScoped<SongService>(serviceProvider => new SongService(connectionString));
 
 var app = builder.Build();
 
