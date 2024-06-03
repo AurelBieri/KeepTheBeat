@@ -66,3 +66,36 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+    .search-container input {
+        width: 300px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .search-container button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #5cb85c;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+        .search-container button:hover {
+            background-color: #4cae4c;
+        }
+
+.search-result {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+}

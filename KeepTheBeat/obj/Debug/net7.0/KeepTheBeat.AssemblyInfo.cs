@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KeepTheBeat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ed3e6d9d9affa50c8b13aa690dee9378e525739")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f81a4264271552df28610b7e07117ce92b1d597c")]
 [assembly: System.Reflection.AssemblyProductAttribute("KeepTheBeat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KeepTheBeat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
