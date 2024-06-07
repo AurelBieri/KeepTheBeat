@@ -2590,11 +2590,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Temp\\testaa\\KeepTheBeat\\KeepTheBeat.csproj",
+      "projectUniqueName": "C:\\Temp\\adfa\\KeepTheBeat\\KeepTheBeat.csproj",
       "projectName": "KeepTheBeat",
-      "projectPath": "C:\\Temp\\testaa\\KeepTheBeat\\KeepTheBeat.csproj",
+      "projectPath": "C:\\Temp\\adfa\\KeepTheBeat\\KeepTheBeat.csproj",
       "packagesPath": "C:\\Users\\xbloc\\.nuget\\packages\\",
-      "outputPath": "C:\\Temp\\testaa\\KeepTheBeat\\obj\\",
+      "outputPath": "C:\\Temp\\adfa\\KeepTheBeat\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -2,34 +2,45 @@
 @using NAudio.Wave
 @using Keep_The_Beat.Classes;
 @using KeepTheBeat.Database.Services;
+@inject NavigationManager Navigation
 @inject SongService SongService
 
-<h3>Upload a Song</h3>
-
-<EditForm Model="@song" OnValidSubmit="HandleValidSubmit">
-    <InputFile OnChange="HandleFileSelected" accept=".mp3" />
-    <div>
-        <label>Title:</label>
-        <InputText @bind-Value="song._titel" />
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-outline-secondary mb-3" @onclick="BackToMain">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <h3>Upload a Song</h3>
+            <EditForm Model="@song" OnValidSubmit="HandleValidSubmit" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <InputFile OnChange="HandleFileSelected" accept=".mp3" class="form-control-file" />
+                </div>
+                <div class="form-group">
+                    <label>Title:</label>
+                    <InputText @bind-Value="song._titel" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Artist:</label>
+                    <InputText @bind-Value="song._artist" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Album:</label>
+                    <InputText @bind-Value="song._album" class="form-control" />
+                </div>
+                <div class="form-group form-check">
+                    <InputCheckbox @bind-Value="song._isfavorite" class="form-check-input" id="favoriteCheck" />
+                    <label class="form-check-label" for="favoriteCheck">Is Favorite</label>
+                </div>
+                <div class="form-group">
+                    <label>Release Year:</label>
+                    <InputNumber @bind-Value="song._releaseyear" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </EditForm>
+        </div>
     </div>
-    <div>
-        <label>Artist:</label>
-        <InputText @bind-Value="song._artist" />
-    </div>
-    <div>
-        <label>Album:</label>
-        <InputText @bind-Value="song._album" />
-    </div>
-    <div>
-        <label>Is Favorite:</label>
-        <InputCheckbox @bind-Value="song._isfavorite" />
-    </div>
-    <div>
-        <label>Release Year:</label>
-        <InputNumber @bind-Value="song._releaseyear" />
-    </div>
-    <button type="submit">Upload</button>
-</EditForm>
+</div>
 
 @code {
     private Song song = new Song();
@@ -69,6 +80,7 @@
         {
             await SongService.AddSong(song);
             song = new Song(); // Reset the form after submission
+            Navigation.NavigateTo("/main");
         }
         else
         {
@@ -76,4 +88,20 @@
             Console.WriteLine("Failed to determine the duration of the song.");
         }
     }
+
+    private void BackToMain()
+    {
+        Navigation.NavigateTo("/main");
+    }
 }
+
+<style>
+    .form-control-file {
+        display: block;
+        width: 100%;
+    }
+
+    .btn-outline-secondary {
+        margin-bottom: 1rem;
+    }
+</style>

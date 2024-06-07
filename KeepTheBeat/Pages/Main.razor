@@ -1,52 +1,75 @@
 ﻿@page "/main"
 @using Microsoft.AspNetCore.Components.Web
+@inject NavigationManager Navigation
 @using Keep_The_Beat.Classes;
 @using Database.Services;
 @inject IJSRuntime JSRuntime
 @inject SongService SongService
 
-<h1 style="display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;">
-    Keep The Beat
-</h1>
+<h1 class="text-center my-4">Keep The Beat</h1>
 
-<div class="search-container">
-    <input @bind="searchQuery" @bind:event="oninput" placeholder="Nach Songs suchen..." />
-    <button @onclick="SearchSong">Suchen</button>
-</div>
-
-@if (filteredSongs.Any())
-{
-    <div class="search-results">
-        @foreach (var song in filteredSongs)
-        {
-            <div class="song-item">
-                <span>@song._titel by @song._artist</span>
-                <button @onclick="() => PlaySong(song)">Play</button>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar Menu -->
+        <div class="col-md-3 col-lg-2 bg-light border-right">
+            <div class="d-flex flex-column p-3">
+                <h4>Menu</h4>
+                <button class="btn btn-primary my-2" @onclick="UploadSong">Song Hochladen</button>
+                <button class="btn btn-secondary my-2" @onclick="CreatePlaylist">Neue Playlist Erstellen</button>
             </div>
-        }
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9 col-lg-10">
+            <div class="form-group position-relative">
+                <input class="form-control" value="@searchQuery" @oninput="UpdateSearchQuery" placeholder="Nach Songs suchen..." />
+                <div class="list-group position-absolute w-100" style="max-height: 200px; overflow-y: auto; z-index: 1000;"
+                     hidden="@string.IsNullOrEmpty(searchQuery)">
+                    @if (filteredSongs.Any())
+                    {
+                        @foreach (var song in filteredSongs)
+                        {
+                            <button type="button" class="list-group-item list-group-item-action" @onclick="() => PlaySong(song)">
+                                @song._titel by @song._artist
+                            </button>
+                        }
+                    }
+                    else if (!string.IsNullOrEmpty(searchQuery))
+                    {
+                        <div class="list-group-item">
+                            Keine Ergebnisse für: @searchQuery
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- <div class="row mt-4">
+            @foreach (var playlist in playlists)
+            {
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex justify-content-center align-items-center">
+                        @playlist.Name
+                            </div>
+                        </div>
+                    </div>
+            }
+            </div> -->
+        </div>
     </div>
-}
-else if (!string.IsNullOrEmpty(searchQuery))
-{
-    <div class="search-result">
-        Keine Ergebnisse für: @searchQuery
-    </div>
-}
+</div>
 
 <audio id="audioPlayer" controls style="display:none;"></audio>
 
-<div class="play-menu" style="position: fixed; bottom: 0; left: 0; right: 0; background-color: #333; color: white; padding: 10px; display: flex; align-items: center;">
+<div class="fixed-bottom bg-dark text-white py-2 px-3 d-flex align-items-center">
     @if (currentSong != null)
     {
-        <div style="flex: 1;">
+        <div class="flex-grow-1">
             <strong>@currentSong._titel</strong> by @currentSong._artist
         </div>
-        <button @onclick="PauseSong">Pause</button>
-        <button @onclick="ResumeSong">Play</button>
-        <button @onclick="StopSong">Stop</button>
+        <button class="btn btn-light btn-sm mx-1" @onclick="PauseSong">Pause</button>
+        <button class="btn btn-light btn-sm mx-1" @onclick="ResumeSong">Play</button>
+        <button class="btn btn-light btn-sm mx-1" @onclick="StopSong">Stop</button>
     }
 </div>
 
@@ -54,6 +77,7 @@ else if (!string.IsNullOrEmpty(searchQuery))
     private string searchQuery = string.Empty;
     private List<Song> allSongs = new();
     private List<Song> filteredSongs = new();
+    private List<Playlist> playlists = new();
     private Song currentSong;
 
     protected override async Task OnInitializedAsync()
@@ -62,8 +86,16 @@ else if (!string.IsNullOrEmpty(searchQuery))
         filteredSongs = allSongs;
     }
 
+    private void UpdateSearchQuery(ChangeEventArgs e)
+    {
+        searchQuery = e.Value.ToString();
+        SearchSong();
+    }
+
     private void SearchSong()
     {
+        Console.WriteLine($"Searching for: {searchQuery}");
+
         if (!string.IsNullOrEmpty(searchQuery))
         {
             filteredSongs = allSongs.Where(song =>
@@ -73,6 +105,12 @@ else if (!string.IsNullOrEmpty(searchQuery))
         else
         {
             filteredSongs = allSongs;
+        }
+
+        Console.WriteLine($"Filtered Songs Count: {filteredSongs.Count}");
+        foreach (var song in filteredSongs)
+        {
+            Console.WriteLine($"Filtered Song: {song._titel} by {song._artist}");
         }
     }
 
@@ -99,4 +137,21 @@ else if (!string.IsNullOrEmpty(searchQuery))
         currentSong = null;
         await JSRuntime.InvokeVoidAsync("stopAudio");
     }
+
+    private void UploadSong()
+    {
+        Navigation.NavigateTo("/upload-song");
+    }
+
+    private void CreatePlaylist()
+    {
+        // Functionality for creating new playlists
+    }
 }
+
+<style>
+    /* Ensure the search results popup is properly displayed */
+    .position-relative .list-group {
+        top: calc(100% + 0.25rem);
+    }
+</style>
