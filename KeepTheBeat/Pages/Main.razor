@@ -5,6 +5,8 @@
 @using Database.Services;
 @inject IJSRuntime JSRuntime
 @inject SongService SongService
+@inject PlaylistService PlaylistService
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 <h1 class="text-center my-4">Keep The Beat</h1>
 
@@ -15,7 +17,7 @@
             <div class="d-flex flex-column p-3">
                 <h4>Menu</h4>
                 <button class="btn btn-primary my-2" @onclick="UploadSong">Song Hochladen</button>
-                <button class="btn btn-secondary my-2" @onclick="CreatePlaylist">Neue Playlist Erstellen</button>
+                <button class="btn btn-secondary my-2" @onclick="ShowCreatePlaylistModal">Neue Playlist Erstellen</button>
             </div>
         </div>
 
@@ -43,18 +45,19 @@
                 </div>
             </div>
 
-            <!-- <div class="row mt-4">
-            @foreach (var playlist in playlists)
-            {
+            <!-- Playlists -->
+            <div class="row mt-4">
+                @foreach (Keep_The_Beat.Classes.Playlist playlist in playlists)
+                {
                     <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
                         <div class="card h-100">
                             <div class="card-body d-flex justify-content-center align-items-center">
-                        @playlist.Name
+                                @playlist._name
                             </div>
                         </div>
                     </div>
-            }
-            </div> -->
+                }
+            </div>
         </div>
     </div>
 </div>
@@ -73,16 +76,42 @@
     }
 </div>
 
+<div class="modal" tabindex="-1" style="display: @(showCreatePlaylistModal ? "block" : "none")">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Neue Playlist Erstellen</h5>
+                <button type="button" class="close" @onclick="CloseCreatePlaylistModal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="playlistName">Playlist Name</label>
+                    <input type="text" class="form-control" id="playlistName" @bind="newPlaylistName" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="CloseCreatePlaylistModal">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="CreatePlaylist">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @code {
     private string searchQuery = string.Empty;
     private List<Song> allSongs = new();
     private List<Song> filteredSongs = new();
-    private List<Playlist> playlists = new();
+    private List<Keep_The_Beat.Classes.Playlist> playlists = new();
     private Song currentSong;
+    private bool showCreatePlaylistModal = false;
+    private string newPlaylistName = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
         allSongs = await SongService.GetSongs();
+        playlists = await PlaylistService.GetPlaylists(await localStorage.GetItemAsync<User>("user"));
         filteredSongs = allSongs;
     }
 
@@ -94,8 +123,6 @@
 
     private void SearchSong()
     {
-        Console.WriteLine($"Searching for: {searchQuery}");
-
         if (!string.IsNullOrEmpty(searchQuery))
         {
             filteredSongs = allSongs.Where(song =>
@@ -106,17 +133,13 @@
         {
             filteredSongs = allSongs;
         }
-
-        Console.WriteLine($"Filtered Songs Count: {filteredSongs.Count}");
-        foreach (var song in filteredSongs)
-        {
-            Console.WriteLine($"Filtered Song: {song._titel} by {song._artist}");
-        }
     }
 
     private async void PlaySong(Song song)
     {
         currentSong = song;
+        searchQuery = string.Empty;
+        filteredSongs = allSongs;
         var base64 = Convert.ToBase64String(song.FileContent);
         var audioSrc = $"data:audio/mp3;base64,{base64}";
         await JSRuntime.InvokeVoidAsync("playAudio", audioSrc);
@@ -143,15 +166,69 @@
         Navigation.NavigateTo("/upload-song");
     }
 
-    private void CreatePlaylist()
+    private void ShowCreatePlaylistModal()
     {
-        // Functionality for creating new playlists
+        showCreatePlaylistModal = true;
+    }
+
+    private async void CloseCreatePlaylistModal()
+    {
+        showCreatePlaylistModal = false;
+        await InvokeAsync(StateHasChanged); // Force UI refresh
+    }
+
+    private async void CreatePlaylist()
+    {
+        if (!string.IsNullOrEmpty(newPlaylistName))
+        {
+            // Close the modal immediately
+            showCreatePlaylistModal = false;
+            await InvokeAsync(StateHasChanged); // Ensure the state is updated immediately
+
+            User user = await localStorage.GetItemAsync<User>("user");
+            var newPlaylist = new Keep_The_Beat.Classes.Playlist(new List<Song>(), newPlaylistName, 0, 0, user);
+
+            await PlaylistService.AddPlaylist(newPlaylist);
+            playlists = await PlaylistService.GetPlaylists(user); // Refresh playlists
+
+            newPlaylistName = string.Empty;
+            await InvokeAsync(StateHasChanged); // Force UI refresh after adding the playlist
+        }
     }
 }
 
 <style>
-    /* Ensure the search results popup is properly displayed */
     .position-relative .list-group {
         top: calc(100% + 0.25rem);
+    }
+
+    .modal {
+        display: block;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        padding-top: 60px;
+    }
+
+    .modal-dialog {
+        position: relative;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto;
+        border: 1px solid #888;
+        width: 100%;
     }
 </style>

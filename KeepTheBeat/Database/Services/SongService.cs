@@ -3,10 +3,11 @@ using Keep_The_Beat.Classes;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using KeepTheBeat.Interfaces;
 
 namespace KeepTheBeat.Database.Services
 {
-    public class SongService
+    public class SongService : ISongService
     {
         private readonly string _connectionString;
 

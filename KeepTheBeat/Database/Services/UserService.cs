@@ -68,27 +68,33 @@ namespace KeepTheBeat.Database.Services
             return users;
         }
 
-        public async Task<bool> Login(string username, string password)
+        public async Task<User> Login(string username, string password)
         {
             using (var connection = new SqliteConnection(_connectionString))
             {
                 await connection.OpenAsync();
 
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT password FROM User WHERE username = $username;";
+                command.CommandText = "SELECT Userid, username, password FROM User WHERE username = $username;";
                 command.Parameters.AddWithValue("$username", username);
 
                 using (var reader = await command.ExecuteReaderAsync())
                 {
                     if (await reader.ReadAsync())
                     {
-                        var storedHash = reader.GetString(0);
-                        return BCrypt.Net.BCrypt.Verify(password, storedHash);
+                        var storedHash = reader.GetString(2);
+                        if (BCrypt.Net.BCrypt.Verify(password, storedHash))
+                        {
+                            return new User(reader.GetInt32(0), reader.GetString(1), "secure", "secure");
+                            
+                        }
                     }
                 }
             }
-            return false;
+            return null;
         }
+
+
 
     }
 }

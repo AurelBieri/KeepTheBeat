@@ -2,6 +2,7 @@
 {
     public class Song
     {
+        public int _songid {  get; set; }
         public string _titel { get; set; }
         public string _artist { get; set; }
         public float? _duration { get; set; }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Temp\\adfa\\KeepTheBeat\\KeepTheBeat.csproj": {}
+    "C:\\Temp\\keepitbeatithallo\\KeepTheBeat\\KeepTheBeat.csproj": {}
   },
   "projects": {
-    "C:\\Temp\\adfa\\KeepTheBeat\\KeepTheBeat.csproj": {
+    "C:\\Temp\\keepitbeatithallo\\KeepTheBeat\\KeepTheBeat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Temp\\adfa\\KeepTheBeat\\KeepTheBeat.csproj",
+        "projectUniqueName": "C:\\Temp\\keepitbeatithallo\\KeepTheBeat\\KeepTheBeat.csproj",
         "projectName": "KeepTheBeat",
-        "projectPath": "C:\\Temp\\adfa\\KeepTheBeat\\KeepTheBeat.csproj",
+        "projectPath": "C:\\Temp\\keepitbeatithallo\\KeepTheBeat\\KeepTheBeat.csproj",
         "packagesPath": "C:\\Users\\xbloc\\.nuget\\packages\\",
-        "outputPath": "C:\\Temp\\adfa\\KeepTheBeat\\obj\\",
+        "outputPath": "C:\\Temp\\keepitbeatithallo\\KeepTheBeat\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -48,6 +48,10 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
+            },
+            "Blazored.LocalStorage": {
+              "target": "Package",
+              "version": "[4.5.0, )"
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",

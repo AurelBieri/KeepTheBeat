@@ -1,6 +1,8 @@
 ﻿@page "/login"
 @inject NavigationManager Navigation
 @inject Database.Services.UserService userService
+@using Blazored.LocalStorage;
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
 <PageTitle>Login</PageTitle>
 
 <div class="container mt-4">
@@ -34,8 +36,10 @@
 
     private async Task PerformLogin()
     {
-        if (await userService.Login(Lusername, Lpassword))
+        var user = await userService.Login(Lusername, Lpassword);
+        if (user != null)
         {
+            await localStorage.SetItemAsync("user", user);
             Navigation.NavigateTo("/main");
         }
         else
