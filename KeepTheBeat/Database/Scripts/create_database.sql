@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS Song (
     Duration REAL,  
     Album TEXT,
     IsFavorite INTEGER NOT NULL, 
-    ReleaseYear INTEGER
+    ReleaseYear INTEGER,
+    ArtistName TEXT
 );
 
 CREATE TABLE IF NOT EXISTS ArtistSong (

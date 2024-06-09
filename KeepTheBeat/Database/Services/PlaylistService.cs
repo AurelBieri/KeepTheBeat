@@ -69,10 +69,10 @@ namespace KeepTheBeat.Database.Services
                 var command = connection.CreateCommand();
                 command.CommandText =
                 @"
-                SELECT PlaylistId, Name, SongCount, Duration
-                FROM Playlist
-                WHERE FK_Userid = $userId;
-            ";
+        SELECT PlaylistId, Name, SongCount, Duration
+        FROM Playlist
+        WHERE FK_Userid = $userId;
+    ";
                 command.Parameters.AddWithValue("$userId", user.UserId);
 
                 using (var reader = await command.ExecuteReaderAsync())
@@ -86,7 +86,10 @@ namespace KeepTheBeat.Database.Services
 
                         var songs = await GetSongsForPlaylist(playlistId);
 
-                        var playlist = new Playlist(songs, name, songCount, duration, user);
+                        var playlist = new Playlist(songs, name, songCount, duration, user)
+                        {
+                            PlaylistId = playlistId // Set the PlaylistId
+                        };
                         playlists.Add(playlist);
                     }
                 }
@@ -106,7 +109,7 @@ namespace KeepTheBeat.Database.Services
                 var command = connection.CreateCommand();
                 command.CommandText =
                 @"
-                SELECT s.SongId, s.Title, s.Duration, s.Album, s.IsFavorite, s.ReleaseYear
+                SELECT s.SongId, s.Title, s.Duration, s.Album, s.IsFavorite, s.ReleaseYear, s.ArtistName, s.FileNamen, s.FileContent
                 FROM Song s
                 INNER JOIN PlaylistSong ps ON s.SongId = ps.SongId
                 WHERE ps.PlaylistId = $playlistId;
@@ -120,11 +123,14 @@ namespace KeepTheBeat.Database.Services
                         var song = new Song
                         {
                             _songid = reader.GetInt32(0),
-                            _titel = reader.GetString(1),
-                            _duration = reader.GetFloat(2),
-                            _album = reader.GetString(3),
+                            _titel = reader.IsDBNull(1) ? null : reader.GetString(1),
+                            _duration = reader.IsDBNull(2) ? (float?)null : reader.GetFloat(2),
+                            _album = reader.IsDBNull(3) ? null : reader.GetString(3),
                             _isfavorite = reader.GetBoolean(4),
-                            _releaseyear = reader.GetInt32(5)
+                            _releaseyear = reader.IsDBNull(5) ? (int?)null : reader.GetInt32(5),
+                            _artist = reader.IsDBNull(6) ? null : reader.GetString(6),
+                            FileName = reader.IsDBNull(7) ? null : reader.GetString(7),
+                            FileContent = reader.IsDBNull(8) ? null : (byte[])reader[8]
                         };
 
                         songs.Add(song);
@@ -133,6 +139,51 @@ namespace KeepTheBeat.Database.Services
             }
 
             return songs;
+        }
+
+        public async Task<Playlist> GetPlaylistById(User user, int playlistId)
+        {
+            using (var connection = new SqliteConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+
+                var command = connection.CreateCommand();
+                command.CommandText = @"
+                SELECT p.PlaylistId, p.Name, p.SongCount, p.Duration
+                FROM Playlist p
+                WHERE p.PlaylistId = $playlistId AND p.FK_Userid = $userId;
+            ";
+                command.Parameters.AddWithValue("$playlistId", playlistId);
+                command.Parameters.AddWithValue("$userId", user.UserId);
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        var playlist = new Playlist(reader.GetInt32(0), await GetSongsForPlaylist(playlistId), reader.GetString(1), reader.GetInt32(2), reader.GetFloat(3), user);
+                        return playlist;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public async Task AddSongToPlaylist(int playlistId, Song song)
+        {
+            using (var connection = new SqliteConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+
+                var command = connection.CreateCommand();
+                command.CommandText = @"
+            INSERT INTO PlaylistSong (PlaylistId, SongId)
+            VALUES ($playlistId, $songId);
+        ";
+                command.Parameters.AddWithValue("$playlistId", playlistId);
+                command.Parameters.AddWithValue("$songId", song._songid);
+
+                await command.ExecuteNonQueryAsync();
+            }
         }
     }
 }

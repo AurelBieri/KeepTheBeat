@@ -24,6 +24,18 @@
             FileName = fileName;
             FileContent = fileContent;
         }
+        public Song(int songid, string titel, string artist, float? duration, string album, bool isfavorite, int? releaseyear, string fileName, byte[] fileContent)
+        {
+            _songid = songid;
+            _titel = titel;
+            _artist = artist;
+            _duration = duration;
+            _album = album;
+            _isfavorite = isfavorite;
+            _releaseyear = releaseyear;
+            FileName = fileName;
+            FileContent = fileContent;
+        }
         public Song()
         {
         }

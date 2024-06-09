@@ -1,0 +1,72 @@
+﻿@page "/playlist/{playlistId:int}"
+@using Database.Services;
+@using Keep_The_Beat.Classes;
+@inject PlaylistService PlaylistService
+@inject SongService SongService
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject NavigationManager Navigation
+@code {
+    [Parameter] public int playlistId { get; set; }
+    private Keep_The_Beat.Classes.Playlist playlist;
+    private List<Song> songs = new List<Song>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var user = await localStorage.GetItemAsync<User>("user");
+        playlist = await PlaylistService.GetPlaylistById(user, playlistId);
+        if (playlist != null)
+        {
+            songs = playlist._songs.ToList();
+        }
+    }
+
+    private string GetTotalDuration()
+    {
+        var totalSeconds = songs.Sum(song => song._duration.GetValueOrDefault());
+        var timeSpan = TimeSpan.FromSeconds(totalSeconds);
+        return $"{timeSpan.Hours:D2}:{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
+    }
+
+    private void GoBack()
+    {
+        Navigation.NavigateTo("/main");
+    }
+}
+
+<h3>@playlist?._name</h3>
+@if (playlist != null)
+{
+    <div>
+        <p>Songs in Playlist: @songs.Count</p>
+        <p>Total Duration: @GetTotalDuration()</p>
+    </div>
+    <div class="list-group">
+        @if (songs.Any())
+        {
+            @foreach (var song in songs)
+            {
+                <div class="list-group-item d-flex justify-content-between">
+                    <div>
+                        <strong>@song._titel</strong> by @song._artist
+                    </div>
+                    <div>
+                        Duration: @TimeSpan.FromSeconds(song._duration.GetValueOrDefault()).ToString("mm\\:ss")
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="list-group-item">
+                No songs yet.
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        Playlist not found.
+    </div>
+}
+<button class="btn btn-secondary mt-3" @onclick="GoBack">Back</button>

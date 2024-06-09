@@ -25,15 +25,21 @@
         <div class="col-md-9 col-lg-10">
             <div class="form-group position-relative">
                 <input class="form-control" value="@searchQuery" @oninput="UpdateSearchQuery" placeholder="Nach Songs suchen..." />
-                <div class="list-group position-absolute w-100" style="max-height: 200px; overflow-y: auto; z-index: 1000;"
+                <div class="list-group position-absolute w-100" style="max-height: 200px; overflow-y: auto; z-index: 1;"
                      hidden="@string.IsNullOrEmpty(searchQuery)">
                     @if (filteredSongs.Any())
                     {
                         @foreach (var song in filteredSongs)
                         {
-                            <button type="button" class="list-group-item list-group-item-action" @onclick="() => PlaySong(song)">
-                                @song._titel by @song._artist
-                            </button>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    @song._titel by @song._artist
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary btn-sm mx-1" @onclick="() => PlaySong(song)">Play</button>
+                                    <button class="btn btn-secondary btn-sm mx-1" @onclick="() => ShowAddToPlaylistModal(song)">Add to Playlist</button>
+                                </div>
+                            </div>
                         }
                     }
                     else if (!string.IsNullOrEmpty(searchQuery))
@@ -46,17 +52,20 @@
             </div>
 
             <!-- Playlists -->
-            <div class="row mt-4">
-                @foreach (Keep_The_Beat.Classes.Playlist playlist in playlists)
-                {
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                        <div class="card h-100">
-                            <div class="card-body d-flex justify-content-center align-items-center">
-                                @playlist._name
+            <div class="playlist-section mt-4 p-3 bg-light rounded">
+                <h3 class="text-center">Your Playlists</h3>
+                <div class="row mt-3">
+                    @foreach (Keep_The_Beat.Classes.Playlist playlist in playlists)
+                    {
+                        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card playlist-card h-100" @onclick="() => OpenPlaylist(playlist)">
+                                <div class="card-body d-flex justify-content-center align-items-center">
+                                    @playlist._name
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
+                    }
+                </div>
             </div>
         </div>
     </div>
@@ -76,7 +85,8 @@
     }
 </div>
 
-<div class="modal" tabindex="-1" style="display: @(showCreatePlaylistModal ? "block" : "none")">
+<!-- Create Playlist Modal -->
+<div class="modal" tabindex="-1" style="display: @(showCreatePlaylistModal ? "block" : "none"); z-index: 1050;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -99,6 +109,36 @@
     </div>
 </div>
 
+<!-- Add to Playlist Modal -->
+<div class="modal" tabindex="-1" style="display: @(showAddToPlaylistModal ? "block" : "none"); z-index: 1050;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add to Playlist</h5>
+                <button type="button" class="close" @onclick="CloseAddToPlaylistModal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="playlistSelect">Select Playlist</label>
+                    <select class="form-control" id="playlistSelect" @bind="selectedPlaylistId">
+                        <option value="">Select Playlist</option>
+                        @foreach (var playlist in playlists)
+                        {
+                            <option value="@playlist.PlaylistId">@playlist._name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="CloseAddToPlaylistModal">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="AddSongToPlaylist">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @code {
     private string searchQuery = string.Empty;
     private List<Song> allSongs = new();
@@ -106,7 +146,10 @@
     private List<Keep_The_Beat.Classes.Playlist> playlists = new();
     private Song currentSong;
     private bool showCreatePlaylistModal = false;
+    private bool showAddToPlaylistModal = false;
     private string newPlaylistName = string.Empty;
+    private Song songToAdd;
+    private int selectedPlaylistId;
 
     protected override async Task OnInitializedAsync()
     {
@@ -158,6 +201,7 @@
     private async void StopSong()
     {
         currentSong = null;
+        currentSong = null;
         await JSRuntime.InvokeVoidAsync("stopAudio");
     }
 
@@ -195,6 +239,36 @@
             await InvokeAsync(StateHasChanged); // Force UI refresh after adding the playlist
         }
     }
+
+    private void OpenPlaylist(Keep_The_Beat.Classes.Playlist playlist)
+    {
+        Navigation.NavigateTo($"/playlist/{playlist.PlaylistId}");
+    }
+
+    private void ShowAddToPlaylistModal(Song song)
+    {
+        songToAdd = song;
+        showAddToPlaylistModal = true;
+    }
+
+    private async void CloseAddToPlaylistModal()
+    {
+        showAddToPlaylistModal = false;
+        await InvokeAsync(StateHasChanged); 
+    }
+
+    private async void AddSongToPlaylist()
+    {
+        showAddToPlaylistModal = false;
+        await InvokeAsync(StateHasChanged); 
+
+        User user = await localStorage.GetItemAsync<User>("user");
+        await PlaylistService.AddSongToPlaylist(selectedPlaylistId, songToAdd);
+        playlists = await PlaylistService.GetPlaylists(user);
+
+        await InvokeAsync(StateHasChanged);
+
+    }
 }
 
 <style>
@@ -205,7 +279,7 @@
     .modal {
         display: block;
         position: fixed;
-        z-index: 1;
+        z-index: 1050;
         left: 0;
         top: 0;
         width: 100%;
@@ -230,5 +304,22 @@
         margin: 5% auto 15% auto;
         border: 1px solid #888;
         width: 100%;
+    }
+
+    .playlist-section {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .playlist-card {
+        border-radius: 10px;
+        background-color: #343a40;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        cursor: pointer; 
     }
 </style>

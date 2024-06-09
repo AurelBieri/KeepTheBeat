@@ -26,8 +26,8 @@ namespace KeepTheBeat.Database.Services
                 {
                     command.CommandText =
                     @"
-                    INSERT INTO Song (Title, Duration, Album, IsFavorite, ReleaseYear, FileNamen, FileContent)
-                    VALUES ($Title, $Duration, $Album, $IsFavorite, $ReleaseYear, $FileNamen, $FileContent);
+                    INSERT INTO Song (Title, Duration, Album, IsFavorite, ReleaseYear, FileNamen, FileContent,ArtistName)
+                    VALUES ($Title, $Duration, $Album, $IsFavorite, $ReleaseYear, $FileNamen, $FileContent, $ArtistName);
                     ";
 
                     command.Parameters.AddWithValue("$Title", song._titel ?? (object)DBNull.Value); 
@@ -37,6 +37,7 @@ namespace KeepTheBeat.Database.Services
                     command.Parameters.AddWithValue("$ReleaseYear", song._releaseyear.HasValue ? (object)song._releaseyear.Value : DBNull.Value);
                     command.Parameters.AddWithValue("$FileNamen", song.FileName ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("$FileContent", song.FileContent ?? (object)DBNull.Value); 
+                    command.Parameters.AddWithValue("$ArtistName",song._artist ?? (object)DBNull.Value) ;
 
                     await command.ExecuteNonQueryAsync();
                 }
@@ -54,7 +55,7 @@ namespace KeepTheBeat.Database.Services
                 var command = connection.CreateCommand();
                 command.CommandText =
                 @"
-                SELECT SongId, Title, Duration, Album, IsFavorite, ReleaseYear, FileNamen, FileContent
+                SELECT SongId, Title, Duration, Album, IsFavorite, ReleaseYear, FileNamen, FileContent, ArtistName
                 FROM Song;
                 ";
 
@@ -63,14 +64,15 @@ namespace KeepTheBeat.Database.Services
                     while (await reader.ReadAsync())
                     {
                         var song = new Song(
-                            reader.GetString(1),
-                            "Unknown Artist",
+                            reader.GetInt32(0),
+                            reader.IsDBNull(1) ? null : reader.GetString(1),
+                            reader.IsDBNull(8) ? null : reader.GetString(8),
                             reader.IsDBNull(2) ? (float?)null : reader.GetFloat(2),
                             reader.IsDBNull(3) ? null : reader.GetString(3),
                             reader.GetInt32(4) == 1,
                             reader.IsDBNull(5) ? (int?)null : reader.GetInt32(5),
-                            reader.GetString(6),
-                            (byte[])reader[7]
+                            reader.IsDBNull(6) ? null : reader.GetString(6),
+                            reader.IsDBNull(7) ? null : (byte[])reader[7]
                         );
 
                         songs.Add(song);
@@ -80,5 +82,6 @@ namespace KeepTheBeat.Database.Services
 
             return songs;
         }
+
     }
 }

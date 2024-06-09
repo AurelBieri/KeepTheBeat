@@ -50,7 +50,7 @@ namespace KeepTheBeat.Database.Services
                 var command = connection.CreateCommand();
                 command.CommandText =
                 @"
-                SELECT firstname, lastname, username, email, password
+                SELECT firstname, lastname, username, email, password, birthday
                 FROM User;
             ";
 

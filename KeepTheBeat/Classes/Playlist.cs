@@ -18,6 +18,16 @@
             _owner = owner;
         }
 
+        public Playlist(int Id,List<Song> songs, string name, int songCount, float duration, User owner)
+        {
+            _songs = songs;
+            _name = name;
+            _songCount = songCount;
+            _totalduration = duration;
+            _owner = owner;
+            PlaylistId = Id;
+        }
+
 
         public Playlist(string name)
         {
