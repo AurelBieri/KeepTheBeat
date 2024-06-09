@@ -1,14 +1,87 @@
 ﻿@page "/playlist/{playlistId:int}"
+@using KeepTheBeat.Classes;
 @using Database.Services;
 @using Keep_The_Beat.Classes;
-@inject PlaylistService PlaylistService
-@inject SongService SongService
+@using Interfaces;
+@inject IPlaylistService PlaylistService
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 @inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
+@inject ISongService SongService
+@inject AudioService AudioService
+
+<h3 class="text-center mt-3">@playlist?._name</h3>
+@if (playlist != null)
+{
+    <div>
+        <p>Songs in Playlist: @songs.Count</p>
+        <p>Total Duration: @GetTotalDuration()</p>
+    </div>
+    <div class="list-group">
+        @if (songs.Any())
+        {
+            @foreach (var song in songs)
+            {
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>@song._titel</strong> by @song._artist
+                    </div>
+                    <div>
+                        Duration: @TimeSpan.FromSeconds(song._duration.GetValueOrDefault()).ToString("mm\\:ss")
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-sm mx-1" @onclick="() => PlaySong(song)">Play</button>
+                        <button class="btn btn-danger btn-sm mx-1" @onclick="() => DeleteSong(song)">Delete</button>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="list-group-item">
+                No songs yet.
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        Playlist not found.
+    </div>
+}
+<button class="btn btn-secondary mt-3" @onclick="GoBack">Back</button>
+
+<audio id="audioPlayer" controls style="display:none;"></audio>
+
+<div class="fixed-bottom bg-dark text-white py-2 px-3 d-flex justify-content-center align-items-center">
+    @if (currentSong != null)
+    {
+        <div class="text-center mx-3">
+            <strong>@currentSong._titel</strong> by @currentSong._artist
+        </div>
+        <button class="btn btn-light btn-circle mx-1" @onclick="TogglePlayPause">
+            @if (isPlaying)
+            {
+                <i class="fas fa-pause fa-lg"></i>
+            }
+            else
+            {
+                <i class="fas fa-play fa-lg"></i>
+            }
+        </button>
+        <button class="btn btn-light btn-circle mx-1" @onclick="StopSong">
+            <i class="fas fa-stop fa-lg"></i>
+        </button>
+    }
+</div>
+
 @code {
     [Parameter] public int playlistId { get; set; }
     private Keep_The_Beat.Classes.Playlist playlist;
     private List<Song> songs = new List<Song>();
+    private Song currentSong;
+    private bool isPlaying = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -31,42 +104,62 @@
     {
         Navigation.NavigateTo("/main");
     }
-}
 
-<h3>@playlist?._name</h3>
-@if (playlist != null)
-{
-    <div>
-        <p>Songs in Playlist: @songs.Count</p>
-        <p>Total Duration: @GetTotalDuration()</p>
-    </div>
-    <div class="list-group">
-        @if (songs.Any())
+    private async Task PlaySong(Song song)
+    {
+        currentSong = song;
+        var base64 = Convert.ToBase64String(song.FileContent);
+        var audioSrc = $"data:audio/mp3;base64,{base64}";
+        await AudioService.PlayAudio(JSRuntime, audioSrc);
+        isPlaying = true;
+    }
+
+    private async Task TogglePlayPause()
+    {
+        if (isPlaying)
         {
-            @foreach (var song in songs)
-            {
-                <div class="list-group-item d-flex justify-content-between">
-                    <div>
-                        <strong>@song._titel</strong> by @song._artist
-                    </div>
-                    <div>
-                        Duration: @TimeSpan.FromSeconds(song._duration.GetValueOrDefault()).ToString("mm\\:ss")
-                    </div>
-                </div>
-            }
+            await AudioService.PauseAudio(JSRuntime);
         }
         else
         {
-            <div class="list-group-item">
-                No songs yet.
-            </div>
+            await AudioService.ResumeAudio(JSRuntime);
         }
-    </div>
+        isPlaying = !isPlaying;
+    }
+
+    private async Task StopSong()
+    {
+        currentSong = null;
+        await AudioService.StopAudio(JSRuntime);
+        isPlaying = false;
+    }
+
+    private async Task DeleteSong(Song song)
+    {
+        await PlaylistService.RemoveSongFromPlaylist(playlist.PlaylistId, song._songid);
+        songs.Remove(song);
+        await InvokeAsync(StateHasChanged); // Force UI refresh
+    }
 }
-else
-{
-    <div class="alert alert-danger">
-        Playlist not found.
-    </div>
-}
-<button class="btn btn-secondary mt-3" @onclick="GoBack">Back</button>
+
+<style>
+    .btn-circle {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+    }
+
+    .fixed-bottom {
+        background-color: #343a40;
+        padding: 10px 0;
+    }
+
+        .fixed-bottom .text-center {
+            flex-grow: 1;
+        }
+
+</style>

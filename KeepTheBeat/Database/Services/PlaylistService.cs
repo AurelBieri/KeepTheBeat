@@ -1,11 +1,12 @@
 ﻿using Microsoft.Data.Sqlite;
 using Keep_The_Beat.Classes;
+using KeepTheBeat.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace KeepTheBeat.Database.Services
 {
-    public class PlaylistService
+    public class PlaylistService : IPlaylistService
     {
         private readonly string _connectionString;
 
@@ -185,5 +186,24 @@ namespace KeepTheBeat.Database.Services
                 await command.ExecuteNonQueryAsync();
             }
         }
+
+        public async Task RemoveSongFromPlaylist(int playlistId, int songId)
+        {
+            using (var connection = new SqliteConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+
+                var command = connection.CreateCommand();
+                command.CommandText = @"
+                DELETE FROM PlaylistSong
+                WHERE PlaylistId = $playlistId AND SongId = $songId;
+                ";
+                command.Parameters.AddWithValue("$playlistId", playlistId);
+                command.Parameters.AddWithValue("$songId", songId);
+
+                await command.ExecuteNonQueryAsync();
+            }
+        }
+
     }
 }

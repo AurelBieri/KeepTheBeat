@@ -1,8 +1,9 @@
 ﻿@page "/login"
 @inject NavigationManager Navigation
-@inject Database.Services.UserService userService
 @using Blazored.LocalStorage;
+@using KeepTheBeat.Interfaces;
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject IUserService userService;
 <PageTitle>Login</PageTitle>
 
 <div class="container mt-4">

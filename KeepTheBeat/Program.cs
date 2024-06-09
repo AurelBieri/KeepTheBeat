@@ -3,6 +3,8 @@ using KeepTheBeat.Database.Services;
 using Microsoft.Data.Sqlite;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
+using KeepTheBeat.Interfaces;
+using KeepTheBeat.Classes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,9 +20,12 @@ builder.Services.AddBlazoredLocalStorage();
 
 // Register UserService
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddScoped<UserService>(serviceProvider => new UserService(connectionString));
-builder.Services.AddScoped<SongService>(serviceProvider => new SongService(connectionString));
-builder.Services.AddScoped<PlaylistService>(serviceProvider => new PlaylistService(connectionString));
+builder.Services.AddScoped<IUserService>(serviceProvider => new UserService(connectionString));
+builder.Services.AddScoped<IPlaylistService>(serviceProvider => new PlaylistService(connectionString));
+builder.Services.AddScoped<ISongService>(serviceProvider => new SongService(connectionString));
+builder.Services.AddScoped<EmailService>();
+builder.Services.AddSingleton<AudioService>();
+
 
 var app = builder.Build();
 

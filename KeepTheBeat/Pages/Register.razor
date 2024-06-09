@@ -1,8 +1,9 @@
 ﻿@page "/register"
 @inject NavigationManager Navigation
 @using Keep_The_Beat.Classes
+@using KeepTheBeat.Interfaces;
 @using KeepTheBeat.Database.Services
-@inject UserService UserService
+@inject IUserService userService;
 
 <PageTitle>Register</PageTitle>
 
@@ -114,7 +115,7 @@
         if (ValidateFields())
         {
             User user = new User(Rusername, Rpassword, Remail, Rfirstname, Rlastname, Rbirthday);
-            await UserService.AddUser(user);
+            await userService.AddUser(user);
             NavigateToLogin();
         }
     }

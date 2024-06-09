@@ -1,12 +1,16 @@
 ﻿@page "/main"
+@using KeepTheBeat.Classes;
 @using Microsoft.AspNetCore.Components.Web
 @inject NavigationManager Navigation
 @using Keep_The_Beat.Classes;
+@using KeepTheBeat.Interfaces;
 @using Database.Services;
 @inject IJSRuntime JSRuntime
-@inject SongService SongService
-@inject PlaylistService PlaylistService
+@inject ISongService SongService
+@inject IPlaylistService PlaylistService
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject EmailService EmailService
+@inject AudioService AudioService
 
 <h1 class="text-center my-4">Keep The Beat</h1>
 
@@ -18,6 +22,8 @@
                 <h4>Menu</h4>
                 <button class="btn btn-primary my-2" @onclick="UploadSong">Song Hochladen</button>
                 <button class="btn btn-secondary my-2" @onclick="ShowCreatePlaylistModal">Neue Playlist Erstellen</button>
+                <button class="btn btn-info my-2" @onclick="ShowFeedbackModal">Feedback</button>
+                <button class="btn btn-danger my-2" @onclick="Logout">Logout</button>
             </div>
         </div>
 
@@ -25,8 +31,7 @@
         <div class="col-md-9 col-lg-10">
             <div class="form-group position-relative">
                 <input class="form-control" value="@searchQuery" @oninput="UpdateSearchQuery" placeholder="Nach Songs suchen..." />
-                <div class="list-group position-absolute w-100" style="max-height: 200px; overflow-y: auto; z-index: 1;"
-                     hidden="@string.IsNullOrEmpty(searchQuery)">
+                <div class="list-group position-absolute w-100" style="max-height: 200px; overflow-y: auto; z-index: 1;" hidden="@string.IsNullOrEmpty(searchQuery)">
                     @if (filteredSongs.Any())
                     {
                         @foreach (var song in filteredSongs)
@@ -73,15 +78,25 @@
 
 <audio id="audioPlayer" controls style="display:none;"></audio>
 
-<div class="fixed-bottom bg-dark text-white py-2 px-3 d-flex align-items-center">
+<div class="fixed-bottom bg-dark text-white py-2 px-3 d-flex justify-content-center align-items-center">
     @if (currentSong != null)
     {
-        <div class="flex-grow-1">
+        <div class="text-center mx-3">
             <strong>@currentSong._titel</strong> by @currentSong._artist
         </div>
-        <button class="btn btn-light btn-sm mx-1" @onclick="PauseSong">Pause</button>
-        <button class="btn btn-light btn-sm mx-1" @onclick="ResumeSong">Play</button>
-        <button class="btn btn-light btn-sm mx-1" @onclick="StopSong">Stop</button>
+        <button class="btn btn-light btn-circle mx-1" @onclick="TogglePlayPause">
+            @if (isPlaying)
+            {
+                <i class="fas fa-pause fa-lg"></i>
+            }
+            else
+            {
+                <i class="fas fa-play fa-lg"></i>
+            }
+        </button>
+        <button class="btn btn-light btn-circle mx-1" @onclick="StopSong">
+            <i class="fas fa-stop fa-lg"></i>
+        </button>
     }
 </div>
 
@@ -139,17 +154,44 @@
     </div>
 </div>
 
+<!-- Feedback Modal -->
+<div class="modal" tabindex="-1" style="display: @(showFeedbackModal ? "block" : "none"); z-index: 1050;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Feedback</h5>
+                <button type="button" class="close" @onclick="CloseFeedbackModal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="feedbackText">Your Feedback</label>
+                    <textarea class="form-control" id="feedbackText" @bind="feedbackText"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="CloseFeedbackModal">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="SendFeedback">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @code {
     private string searchQuery = string.Empty;
     private List<Song> allSongs = new();
     private List<Song> filteredSongs = new();
     private List<Keep_The_Beat.Classes.Playlist> playlists = new();
     private Song currentSong;
+    private bool isPlaying = false;
     private bool showCreatePlaylistModal = false;
     private bool showAddToPlaylistModal = false;
+    private bool showFeedbackModal = false;
     private string newPlaylistName = string.Empty;
     private Song songToAdd;
     private int selectedPlaylistId;
+    private string feedbackText = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
@@ -185,24 +227,28 @@
         filteredSongs = allSongs;
         var base64 = Convert.ToBase64String(song.FileContent);
         var audioSrc = $"data:audio/mp3;base64,{base64}";
-        await JSRuntime.InvokeVoidAsync("playAudio", audioSrc);
+        await AudioService.PlayAudio(JSRuntime, audioSrc);
+        isPlaying = true;
     }
 
-    private async void PauseSong()
+    private async void TogglePlayPause()
     {
-        await JSRuntime.InvokeVoidAsync("pauseAudio");
-    }
-
-    private async void ResumeSong()
-    {
-        await JSRuntime.InvokeVoidAsync("resumeAudio");
+        if (isPlaying)
+        {
+            await AudioService.PauseAudio(JSRuntime);
+        }
+        else
+        {
+            await AudioService.ResumeAudio(JSRuntime);
+        }
+        isPlaying = !isPlaying;
     }
 
     private async void StopSong()
     {
         currentSong = null;
-        currentSong = null;
-        await JSRuntime.InvokeVoidAsync("stopAudio");
+        await AudioService.StopAudio(JSRuntime);
+        isPlaying = false;
     }
 
     private void UploadSong()
@@ -254,24 +300,78 @@
     private async void CloseAddToPlaylistModal()
     {
         showAddToPlaylistModal = false;
-        await InvokeAsync(StateHasChanged); 
+        await InvokeAsync(StateHasChanged);
     }
 
     private async void AddSongToPlaylist()
     {
         showAddToPlaylistModal = false;
-        await InvokeAsync(StateHasChanged); 
+        await InvokeAsync(StateHasChanged);
 
         User user = await localStorage.GetItemAsync<User>("user");
         await PlaylistService.AddSongToPlaylist(selectedPlaylistId, songToAdd);
         playlists = await PlaylistService.GetPlaylists(user);
 
         await InvokeAsync(StateHasChanged);
+    }
 
+    private void ShowFeedbackModal()
+    {
+        showFeedbackModal = true;
+    }
+
+    private async void CloseFeedbackModal()
+    {
+        showFeedbackModal = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async void SendFeedback()
+    {
+        showFeedbackModal = false;
+        await InvokeAsync(StateHasChanged);
+        //Don't use it yet it uses the a Email i set up. For security only i can allow the usage for the moment.
+
+        /* if (!string.IsNullOrEmpty(feedbackText))
+         {
+             await EmailService.SendEmailAsync("User Feedback", feedbackText);
+             feedbackText = string.Empty;
+             showFeedbackModal = false;
+             await InvokeAsync(StateHasChanged);
+         }
+         else
+         {
+             await JSRuntime.InvokeVoidAsync("alert", "Please enter feedback before sending.");
+         }*/
+    }
+
+    private void Logout()
+    {
+        localStorage.RemoveItemAsync("user");
+        Navigation.NavigateTo("/");
     }
 }
 
 <style>
+    .btn-circle {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+    }
+
+    .fixed-bottom {
+        background-color: #343a40;
+        padding: 10px 0;
+    }
+
+        .fixed-bottom .text-center {
+            flex-grow: 1;
+        }
+
     .position-relative .list-group {
         top: calc(100% + 0.25rem);
     }
@@ -285,8 +385,8 @@
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.4);
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
         padding-top: 60px;
     }
 
@@ -320,6 +420,6 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        cursor: pointer; 
+        cursor: pointer;
     }
 </style>

@@ -882,3 +882,9 @@ C:\Temp\Keepthebeatfinaal\KeepTheBeat\obj\Debug\net7.0\refint\KeepTheBeat.dll
 C:\Temp\Keepthebeatfinaal\KeepTheBeat\obj\Debug\net7.0\KeepTheBeat.pdb
 C:\Temp\Keepthebeatfinaal\KeepTheBeat\obj\Debug\net7.0\KeepTheBeat.genruntimeconfig.cache
 C:\Temp\Keepthebeatfinaal\KeepTheBeat\obj\Debug\net7.0\ref\KeepTheBeat.dll
+C:\Temp\Keepthebeatfinaal\KeepTheBeat\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+C:\Temp\Keepthebeatfinaal\KeepTheBeat\bin\Debug\net7.0\MailKit.dll
+C:\Temp\Keepthebeatfinaal\KeepTheBeat\bin\Debug\net7.0\MimeKit.dll
+C:\Temp\Keepthebeatfinaal\KeepTheBeat\bin\Debug\net7.0\System.Formats.Asn1.dll
+C:\Temp\Keepthebeatfinaal\KeepTheBeat\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Temp\Keepthebeatfinaal\KeepTheBeat\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll

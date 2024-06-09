@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using Keep_The_Beat.Classes;
+using KeepTheBeat.Interfaces;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ using BCrypt;
 
 namespace KeepTheBeat.Database.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly string _connectionString;
 

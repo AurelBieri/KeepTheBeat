@@ -1,14 +1,13 @@
 ﻿@page "/"
 @inject NavigationManager Navigation
 
-<h1>Welcome to Keep The Beat</h1>
-<div class="button-container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-    <button @onclick="NavigateToLogin" style="margin-right: 10px; padding: 10px 20px; font-size: 16px; cursor: pointer;">Login</button>
-    <button @onclick="NavigateToRegister" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Register</button>
+<h1 class="text-center my-5">Welcome to Keep The Beat</h1>
+<div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+    <button class="btn btn-primary btn-lg mx-2" @onclick="NavigateToLogin">Login</button>
+    <button class="btn btn-secondary btn-lg mx-2" @onclick="NavigateToRegister">Register</button>
 </div>
 
 @code {
-
     private void NavigateToLogin()
     {
         Navigation.NavigateTo("/login");

@@ -1,9 +1,10 @@
 ﻿@page "/upload-song"
 @using NAudio.Wave
 @using Keep_The_Beat.Classes;
+@using KeepTheBeat.Interfaces;
 @using KeepTheBeat.Database.Services;
 @inject NavigationManager Navigation
-@inject SongService SongService
+@inject ISongService SongService
 
 <div class="container mt-5">
     <div class="row">
