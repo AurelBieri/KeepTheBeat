@@ -1,4 +1,3 @@
-using KeepTheBeat.Data;
 using KeepTheBeat.Database.Services;
 using Microsoft.Data.Sqlite;
 using Blazored.LocalStorage;
@@ -11,9 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-
-// Register WeatherForecastService as a Singleton
-builder.Services.AddSingleton<WeatherForecastService>();
 
 
 builder.Services.AddBlazoredLocalStorage();

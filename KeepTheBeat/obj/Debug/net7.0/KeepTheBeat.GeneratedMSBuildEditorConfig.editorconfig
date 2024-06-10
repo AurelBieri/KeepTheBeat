@@ -9,65 +9,67 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = KeepTheBeat
 build_property.RootNamespace = KeepTheBeat
-build_property.ProjectDir = C:\Temp\Keepthebeatfinaal\KeepTheBeat\
+build_property.ProjectDir = C:\temp\Finalkeepthebeat\KeepTheBeat\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Temp\Keepthebeatfinaal\KeepTheBeat
+build_property.MSBuildProjectDirectory = C:\temp\Finalkeepthebeat\KeepTheBeat
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/App.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Pages/AddSongPage.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Pages/AddSongPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkU29uZ1BhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Pages/Create.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Pages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Pages/Home.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Pages/Login.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Pages/Main.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Pages/Main.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Pages/Playlistsongs.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Pages/Playlistsongs.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxheWxpc3Rzb25ncy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Pages/Register.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Shared/SurveyPrompt.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/_Imports.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Shared/MainLayout.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-8r8cu6qdv7
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Shared/NavMenu.razor]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-4prdomeshc
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Pages/Error.cshtml]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Keepthebeatfinaal/KeepTheBeat/Pages/_Host.cshtml]
+[C:/temp/Finalkeepthebeat/KeepTheBeat/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
