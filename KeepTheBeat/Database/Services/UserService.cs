@@ -95,6 +95,36 @@ namespace KeepTheBeat.Database.Services
             return null;
         }
 
+        public async Task<bool> IsEmailTaken(string email)
+        {
+            using (var connection = new SqliteConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT COUNT(1) FROM User WHERE email = $email;";
+                command.Parameters.AddWithValue("$email", email);
+
+                var result = (long)await command.ExecuteScalarAsync();
+                return result > 0;
+            }
+        }
+
+        public async Task<bool> IsUsernameTaken(string username)
+        {
+            using (var connection = new SqliteConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT COUNT(1) FROM User WHERE username = $username;";
+                command.Parameters.AddWithValue("$username", username);
+
+                var result = (long)await command.ExecuteScalarAsync();
+                return result > 0;
+            }
+        }
+
 
 
     }

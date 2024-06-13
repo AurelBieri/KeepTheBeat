@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\temp\\Finalkeepthebeat\\KeepTheBeat\\KeepTheBeat.csproj": {}
+    "C:\\Users\\xbloc\\Source\\Repos\\keepthebeat\\KeepTheBeat\\KeepTheBeat.csproj": {}
   },
   "projects": {
-    "C:\\temp\\Finalkeepthebeat\\KeepTheBeat\\KeepTheBeat.csproj": {
+    "C:\\Users\\xbloc\\Source\\Repos\\keepthebeat\\KeepTheBeat\\KeepTheBeat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\temp\\Finalkeepthebeat\\KeepTheBeat\\KeepTheBeat.csproj",
+        "projectUniqueName": "C:\\Users\\xbloc\\Source\\Repos\\keepthebeat\\KeepTheBeat\\KeepTheBeat.csproj",
         "projectName": "KeepTheBeat",
-        "projectPath": "C:\\temp\\Finalkeepthebeat\\KeepTheBeat\\KeepTheBeat.csproj",
-        "packagesPath": "C:\\Users\\Aurel\\.nuget\\packages\\",
-        "outputPath": "C:\\temp\\Finalkeepthebeat\\KeepTheBeat\\obj\\",
+        "projectPath": "C:\\Users\\xbloc\\Source\\Repos\\keepthebeat\\KeepTheBeat\\KeepTheBeat.csproj",
+        "packagesPath": "C:\\Users\\xbloc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\xbloc\\Source\\Repos\\keepthebeat\\KeepTheBeat\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Aurel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\xbloc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -39,11 +39,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -70,6 +65,10 @@
               "target": "Package",
               "version": "[8.0.5, )"
             },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
+            },
             "NAudio": {
               "target": "Package",
               "version": "[2.2.1, )"
@@ -77,6 +76,16 @@
             "SQLitePCLRaw.bundle_e_sqlite3": {
               "target": "Package",
               "version": "[2.1.8, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.8.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.8.1, )"
             }
           },
           "imports": [
@@ -98,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

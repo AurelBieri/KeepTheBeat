@@ -3,6 +3,7 @@
 @using Keep_The_Beat.Classes
 @using KeepTheBeat.Interfaces;
 @using KeepTheBeat.Database.Services
+@using KeepTheBeat.Classes;
 @inject IUserService userService;
 
 <PageTitle>Register</PageTitle>
@@ -14,25 +15,25 @@
     <div class="form-group">
         <label for="Rfirstname">Firstname:</label>
         <input type="text" class="form-control" id="Rfirstname" @bind="Rfirstname" />
-        @if (!string.IsNullOrEmpty(firstnameError))
+        @if (!string.IsNullOrEmpty(validator.FirstnameError))
         {
-            <span class="text-danger">@firstnameError</span>
+            <span class="text-danger">@validator.FirstnameError</span>
         }
     </div>
     <div class="form-group">
         <label for="Rlastname">Lastname:</label>
         <input type="text" class="form-control" id="Rlastname" @bind="Rlastname" />
-        @if (!string.IsNullOrEmpty(lastnameError))
+        @if (!string.IsNullOrEmpty(validator.LastnameError))
         {
-            <span class="text-danger">@lastnameError</span>
+            <span class="text-danger">@validator.LastnameError</span>
         }
     </div>
     <div class="form-group">
         <label for="Remail">Email:</label>
         <input type="email" class="form-control" id="Remail" @bind="Remail" />
-        @if (!string.IsNullOrEmpty(emailError))
+        @if (!string.IsNullOrEmpty(validator.EmailError))
         {
-            <span class="text-danger">@emailError</span>
+            <span class="text-danger">@validator.EmailError</span>
         }
     </div>
     <div class="form-group">
@@ -42,23 +43,22 @@
     <div class="form-group">
         <label for="Rusername">Username:</label>
         <input type="text" class="form-control" id="Rusername" @bind="Rusername" />
-        @if (!string.IsNullOrEmpty(usernameError))
+        @if (!string.IsNullOrEmpty(validator.UsernameError))
         {
-            <span class="text-danger">@usernameError</span>
+            <span class="text-danger">@validator.UsernameError</span>
         }
     </div>
     <div class="form-group">
         <label for="Rpassword">Password:</label>
         <input type="password" class="form-control" id="Rpassword" @bind="Rpassword" />
-        @if (!string.IsNullOrEmpty(passwordError))
+        @if (!string.IsNullOrEmpty(validator.PasswordError))
         {
-            <span class="text-danger">@passwordError</span>
+            <span class="text-danger">@validator.PasswordError</span>
         }
     </div>
 
     <button class="btn btn-primary" @onclick="register">Register</button>
 </div>
-
 
 @code {
     private string Rusername { get; set; }
@@ -67,52 +67,16 @@
     private string Rfirstname { get; set; }
     private string Rlastname { get; set; }
     private DateTime Rbirthday { get; set; }
-    private string emailError, passwordError, firstnameError, lastnameError, birthdayError, usernameError;
+    private RegisterValidator validator;
 
-    private bool ValidateFields()
+    protected override void OnInitialized()
     {
-        bool isValid = true;
-        if (string.IsNullOrWhiteSpace(Rfirstname)) { firstnameError = "Firstname is required."; isValid = false; }
-        else { firstnameError = null; }
-        if (string.IsNullOrWhiteSpace(Rlastname)) { lastnameError = "Lastname is required."; isValid = false; }
-        else { lastnameError = null; }
-        if (string.IsNullOrWhiteSpace(Rusername)) { usernameError = "Username is required."; isValid = false; }
-        else { usernameError = null; }
-        if (string.IsNullOrWhiteSpace(Remail) || !IsValidEmail(Remail)) { isValid = false; } 
-        if (string.IsNullOrWhiteSpace(Rpassword) || !IsValidPassword(Rpassword)) { isValid = false; }
-
-        return isValid;
-    }
-
-    private bool IsValidEmail(string email)
-    {
-        try
-        {
-            var addr = new System.Net.Mail.MailAddress(email);
-            emailError = null;
-            return addr.Address == email;
-        }
-        catch
-        {
-            emailError = "Invalid email format";
-            return false;
-        }
-    }
-
-    private bool IsValidPassword(string password)
-    {
-        if (string.IsNullOrWhiteSpace(password) || password.Length < 8)
-        {
-            passwordError = "Password must be at least 8 characters long";
-            return false;
-        }
-        passwordError = null;
-        return true;
+        validator = new RegisterValidator(userService);
     }
 
     private async Task register()
     {
-        if (ValidateFields())
+        if (await validator.ValidateFieldsAsync(Rfirstname, Rlastname, Rusername, Remail, Rpassword))
         {
             User user = new User(Rusername, Rpassword, Remail, Rfirstname, Rlastname, Rbirthday);
             await userService.AddUser(user);
@@ -125,4 +89,3 @@
         Navigation.NavigateTo("/login");
     }
 }
-

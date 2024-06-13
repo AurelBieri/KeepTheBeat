@@ -7,5 +7,8 @@ namespace KeepTheBeat.Interfaces
         Task AddUser(User user);
         Task<List<User>> GetUser();
         Task<User> Login(string username, string password);
+        Task<bool> IsUsernameTaken(string username);
+        Task<bool> IsEmailTaken(string email);
+
     }
 }
