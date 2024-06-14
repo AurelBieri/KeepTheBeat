@@ -103,7 +103,7 @@ Login: Username, Password
 
 Register: Name, Email, Birthday, Username, Password
 ### <a name="_toc169285378"></a>PAP
-![PAP](https://gitlab.com/bbzw9435134/keepthebeat/-/blob/main/PAP_KTB.PNG?ref_type=heads)
+![PAP](PAP_KTB.PNG)
 
 Beschreibung:
 
