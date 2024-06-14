@@ -238,7 +238,7 @@ Wenn man auf «Feedback» klickt, erscheint dieses Pop-up, wobei man sein Feedba
 
 ## <a name="_toc169285388"></a>Projektpräsentation
 <figure class="video_container">
-  <iframe src="Video/VideoWebseiteSong.mp4" frameborder="0" allowfullscreen="false"> 
+  <iframe src="Video/VideoWebseiteSong.mp4" frameborder="0" allowfullscreen="true"> 
 </iframe>
 </figure>
 
