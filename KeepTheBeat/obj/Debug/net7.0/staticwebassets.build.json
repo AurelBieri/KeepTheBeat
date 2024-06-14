@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1oMba/yHUtSAxt42kiCBmUPiFj49FKVDsHoNu52a4N0=",
+  "Hash": "jIamGnSAu8VuGhVDOCtqwdrNH504ofymTvXi7HOFVPY=",
   "Source": "KeepTheBeat",
   "BasePath": "_content/KeepTheBeat",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "KeepTheBeat\\wwwroot",
       "Source": "KeepTheBeat",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\bundle\\KeepTheBeat.styles.css",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\bundle\\KeepTheBeat.styles.css",
       "SourceId": "KeepTheBeat",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "KeepTheBeat.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\bundle\\KeepTheBeat.styles.css"
+      "OriginalItemSpec": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\bundle\\KeepTheBeat.styles.css"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\KeepTheBeat.bundle.scp.css",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\KeepTheBeat.bundle.scp.css",
       "SourceId": "KeepTheBeat",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "KeepTheBeat.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\KeepTheBeat.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\KeepTheBeat.bundle.scp.css"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\css\\site.css",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\favicon.png",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -302,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\js\\site.js",
       "SourceId": "KeepTheBeat",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\temp\\keepthebeatfinal\\KeepTheBeat\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ana\\Source\\Repos\\keepthebeat1\\KeepTheBeat\\wwwroot\\",
       "BasePath": "_content/KeepTheBeat",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
