@@ -109,7 +109,7 @@ Beschreibung:
 
 Zuerst kann der User entscheiden, ob er sich einloggen will oder sich zuerst noch registrieren muss. Falls er sich registrieren muss, gibt er Name, Username, Passwort, Mail und seinen Geburtstag an, diese werden dann von der Datenbank validiert. Falls das Registrieren erfolgreich war, kann er sich einloggen. Wenn etwas nicht akzeptiert wird, muss der Registrierungsvorgang wiederholt werden. Beim Login muss der User Name und Passwort eingeben, diese werden dann validiert. Sind diese korrekt kommt er in Keep The Beat rein. Wenn etwas falsch war, muss er es erneut versuchen. Im Programm dann kann der User Playlists erstellen, Songs zu Playlists hinzufügen oder nach Songs suchen. Wählt er die Option Playlist erstellen, muss er einen Playlistname angeben, zudem wird er gefragt, ob er Songs hinzufügen will. Wenn nicht wird alles validiert und eine leere Playlist erstellt. Wenn ja kommt er zur Option Songs hinzufügen. Bei dieser Option muss er einen Playlistname und die Songs, die er hinzufügen will, angeben. Dann wird alles validiert und die Songs hinzugefügt. Bei der Option Songs suchen, muss der User einfach denn Song Name angeben und dieser wird dann validiert und gesucht.
 ### <a name="_toc169285379"></a>Mockup
-![Start](https://gitlab.com/bbzw9435134/keepthebeat/-/tree/main/images?ref_type=heads)
+![Start](images/Mockup_Homepage.png)
 
 Auf diesem Bild sieht man die Startseite unserer Applikation. Dabei gibt es einen Login Button, falls man schon einen Account hat und einen Register Button um sich zu registrieren, wenn man noch keinen Account hat. 
 
