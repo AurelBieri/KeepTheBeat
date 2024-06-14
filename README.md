@@ -138,28 +138,28 @@ Prototyp:
 
 Wir haben im Moment eine Willkommens Seite, bei der man sich zwischen Login und Registrieren entscheiden kann. Sowie der jeweilige Login und Registrierseiten. Und auch eine Datenbank.
 
-<!--![Ein Bild, das Screenshot, Text, Software, Multimedia-Software enthält.-->
+![P1](images/Prototyp1.png)
 
 Bei Login kann man den Benutzernamen und Passwort eingeben. Das ist aber noch nicht mit der Datenbank verbunden.
 
-<!--![Ein Bild, das Text, Screenshot, Software, Computersymbol enthält.-->
+![P2](images/Prototyp2.png)
 
 Auf der Register Seite kann man der Name, E-Mail, Geburtstag, Benutzername und Passwort festlegen. Im Moment ist das noch nicht mit der Datenbank verbunden, aber man müsste eigentlich nur noch die Daten an eine Methode übergeben.
 
-<!--![Ein Bild, das Text, Screenshot, Software, Computersymbol enthält.-->
+![P3](images/Prototyp3.png)
 
 Bei der Datenbank haben wir ein Skript, welches die Datenbank und alle Tabellen erstellt.
 Das Skript wir immer beim Öffnen des Programms ausgeführt und prüft auch ob die Datenbank schon vorhanden ist oder nicht. 
 
-<!--![Ein Bild, das Text, Screenshot, Karte Menü enthält.-->
+![P4](images/Prototyp4.png)
 
 Es hat auch Methoden um einen neuen Benutzer der Datenbank hinzuzufügen.
 
-<!--![Ein Bild, das Text, Software, Schrift, Screenshot enthält.-->
+![P5](images/Prototyp5.png)
 
 Das Programm hat auch schon Datenbank Funktionen zum hinzufügen von Songs und Künstlern
 
-<!--![Ein Bild, das Text, Screenshot enthält.-->
+![P6](images/Prototyp6.png)
 
 ## <a name="_toc169285381"></a>Implementation
 ### <a name="_toc169285382"></a>Klassendiagramm
