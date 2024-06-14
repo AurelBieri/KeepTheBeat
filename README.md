@@ -237,8 +237,9 @@ Wenn man auf «Neue Playlist Erstellen» drückt, erscheint dieses Pop-up. Hier 
 Wenn man auf «Feedback» klickt, erscheint dieses Pop-up, wobei man sein Feedback hineinschreiben kann und es mit dem Send Button abschicken kann. 
 
 ## <a name="_toc169285388"></a>Projektpräsentation
-[Video Title](Video/VideoWebseiteSong.mp4)
-<video src="Video/VideoWebseiteSong.mp4" controls title="Title"></video>
+Wir haben ein Video gemacht welches unser ganzes Projekt Vorstellt. Der Folgende Link führt zum Video.
+[Video Projektvorstellung](Video/VideoWebseiteSong.mp4)
+
 ## <a name="_toc169285389"></a>Fazit
 Dieses Projekt hat uns sehr viel Zeit und Mühe gekostet. Dennoch sind wir sehr zufrieden mit dem Ergebnis. Wir konnte unsere Projektidee umsetzen und sind stolz auf unsere Leistung. Wir hatten allerdings sehr viele Probleme am Anfang, vor allem wegen der Datenbank. Diese wollte sich nicht verbinden lassen mit unserem Projekt und wir haben sehr viel Zeit gebraucht, diese Probleme zu beheben. Dadurch kamen wir in einen Zeitstress, vor allem am Ende des Projekts, da wir es unterschätzt haben. Auch die Dokumentation haben wir ein bisschen vernachlässigt und mussten somit noch sehr viel am Ende machen. Allerdings haben wir uns die Aufgaben sehr gut aufgeteilt und generell haben wir gut miteinander zusammengearbeitet. Im Grossen und Ganzem würden wir uns mehr an unsere Planung halten, um Zeitstress zu verhindern, und würden früher mit der Dokumentation beginnen. 
 
