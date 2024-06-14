@@ -197,35 +197,35 @@ All diese Test sind erfolgreich wenn man sie Ausführt.
 ![T7](images/Test7.png)
 
 ## <a name="_toc169285384"></a>Architektur und Design
-<!--![Ein Bild, das Text, Screenshot, Schrift, Design enthält.-->
+![A1](images/Architektur1.png)
 
 Hier ist die Startseite von unserer Applikation. Wie man hier sieht, ist der Hintergrund Blau und die Schriftfarbe wurde zu Violet geändert. Ausserdem gibt es zwei Button, mit denen man entweder auf die Login Seite oder auf die Registrierungsseite kommt. 
 
-<!--![Ein Bild, das Text, Screenshot, Reihe, Schrift enthält.-->
+![A2](images/Architektur2.png)
 
 Das ist die Registrierungsseite, bei der der Hintergrund auch blau ist und die Labels haben eine andere Farbe als der Titel, damit man diese besser erkennen kann. 
 
-<!--![Ein Bild, das Text, Screenshot, Reihe, Schrift enthält.-->
+![A3](images/Architektur3.png)
 
 Wenn man sich registriert hat, kommt man auf die Loginseite, die im gleichen Konzept gestaltet worden ist, wie die vorherigen Seiten
 
-<!--![Ein Bild, das Text, Screenshot, Schrift, Zahl enthält.-->
+![A4](images/Architektur4.png)
 
 Das ist die Homepage. Hier werden alle erstellten Playlists angezeigt. Ausserdem gibt es ein Menu, wo man einen Song hochladen, eine Playlist erstellen, ein Feedback geben und sich ausloggen kann. Es beinhaltet eine Suchleiste, mit der man nach Songtitel suchen kann. 
 
-<!--![Ein Bild, das Screenshot, Text, Schrift, Reihe enthält.-->
+![A5](images/Architektur5.png)
 
 So sieht es aus, wenn man in eine Playlist reingeht. Es wird angezeigt, wie viele Lieder die Playlist beinhaltet, wie lange sie insgesamt dauert und man kann die Lieder entweder abspielen oder löschen. Ausserdem gibt es einen Button, mit dem man zurück auf die Homepage kommt. 
 
-<!--![Ein Bild, das Text, Screenshot, Reihe, Schrift enthält.-->
+![A6](images/Architektur6.png)
 
 Wenn man beim Menu auf «Upload a Song» drückt, kommt man auf diese Seite. Hier wählt man eine Songdatei aus und schreibt den Titel, den Künstler, das Album, das Erscheinungsjahr und ob das Lied ein Favorit ist, aus. Wenn man auf den Upload Button drückt, fügt man das Lied hinzu. 
 
-<!--![Ein Bild, das Text, Software, Zahl, Screenshot enthält.-->
+![A7](images/Architektur7.png)
 
 Wenn man auf «Neue Playlist Erstellen» drückt, erscheint dieses Pop-up. Hier gibt man den Namen der Playlist ein, welche dann erstellt wird, wenn man auf den Create Button drückt 
 
-<!--![Ein Bild, das Text, Screenshot, Schrift, Zahl enthält.-->
+![A8](images/Architektur8.png)
 
 Wenn man auf «Feedback» klickt, erscheint dieses Pop-up, wobei man sein Feedback hineinschreiben kann und es mit dem Send Button abschicken kann. 
 
