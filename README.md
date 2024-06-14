@@ -1,6 +1,6 @@
 # KeepTheBeat
-
-
+## Keep The Beat von Aurel Bieri, Ana Nikolic und Larissa Fahrni
+![m1](images/Deckblatt.JPG)
 # Inhaltsverzeichnis
 [Arbeitsjournal	](#_toc169285371)
 
