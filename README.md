@@ -109,27 +109,27 @@ Beschreibung:
 
 Zuerst kann der User entscheiden, ob er sich einloggen will oder sich zuerst noch registrieren muss. Falls er sich registrieren muss, gibt er Name, Username, Passwort, Mail und seinen Geburtstag an, diese werden dann von der Datenbank validiert. Falls das Registrieren erfolgreich war, kann er sich einloggen. Wenn etwas nicht akzeptiert wird, muss der Registrierungsvorgang wiederholt werden. Beim Login muss der User Name und Passwort eingeben, diese werden dann validiert. Sind diese korrekt kommt er in Keep The Beat rein. Wenn etwas falsch war, muss er es erneut versuchen. Im Programm dann kann der User Playlists erstellen, Songs zu Playlists hinzufügen oder nach Songs suchen. Wählt er die Option Playlist erstellen, muss er einen Playlistname angeben, zudem wird er gefragt, ob er Songs hinzufügen will. Wenn nicht wird alles validiert und eine leere Playlist erstellt. Wenn ja kommt er zur Option Songs hinzufügen. Bei dieser Option muss er einen Playlistname und die Songs, die er hinzufügen will, angeben. Dann wird alles validiert und die Songs hinzugefügt. Bei der Option Songs suchen, muss der User einfach denn Song Name angeben und dieser wird dann validiert und gesucht.
 ### <a name="_toc169285379"></a>Mockup
-![Start](images/Mockup_Startseite.PNG)
+![Start](https://gitlab.com/bbzw9435134/keepthebeat/-/tree/main/images?ref_type=heads)
 
 Auf diesem Bild sieht man die Startseite unserer Applikation. Dabei gibt es einen Login Button, falls man schon einen Account hat und einen Register Button um sich zu registrieren, wenn man noch keinen Account hat. 
 
-![Login](images/Mockup_Login.PNG)
+![Login](Mockup_Login.PNG)
 
 Wenn man auf den Login Button drückt, kommt man auf diese Seite. Hier muss man seinen Nutzernamen und sein Passwort eingeben, damit man sich in seinen Account einloggen kann. Wenn man die Felder ausgefühlt hat, drückt man auf den Login Button, der einen zu der Homepage führt 
 
-![Register](images/Mockup_Register.PNG)
+![Register](Mockup_Register.PNG)
 
 Wenn man auf den Register Button drückt, kommt man auf die Registrierungsseite. Hier muss man seinen Namen, seine E-Mail, seines Geburtstags, sein Benutzernamen und sein Passwort. Wenn man alle Felder ausgefüllt hat, kann man auf Registrieren drücken. Danach wird man automatisch weitergeleitet auf die Login Seite, um sich einzuloggen.  
 
-![Homepage](images/Mockup_Homepage.PNG)
+![Homepage](Mockup_Homepage.PNG)
 
 Dies ist die Homepage. Man hat hier eine Übersicht über alle vorhandenen Playlists. Es gibt eine Suchleiste, wo man Liedern suchen kann und man den Titel des Lieds eingeben kann. 
 
-![Playlist](images/Mockup_Playlist.PNG)
+![Playlist](Mockup_Playlist.PNG)
 
 Wenn man auf einen Playlistnamen auf der Homepage drückt, dann kommt man auf diese Ansicht. Hier zeigt es den gegebenen Namen der Playlist an, sowie auch alle Lieder, die Künstler der Lieder, die Dauer, wann es veröffentlicht worden ist, ob es in der Favoriten liste ist und welchem Album das Lied gehört. Ausserdem zeigt es die gesamte Dauer der Playlist an und es hat einen Zurück Button. 
 
-![Searching](images/Mockup_Searching.PNG)
+![Searching](Mockup_Searching.PNG)
 
 Wenn man ein Lied sucht, kommen dann die Vorschläge. Bei allen ausgegeben Lieder zeigt es, wie schon bei der Playlist, der Name des Lieds, die Dauer, der Künstler, ob es zu den Favoriten gehört und welchem Album es angehört. 
 
