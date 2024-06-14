@@ -26,9 +26,9 @@
 
 [Klassendiagramm	](#_toc169285382)
 
-[Testing	](#_toc169285383)
+[Er und Relationales Modell](#_toc169285390)
 
-[Architektur und Design	](#_toc169285384)
+[Testing	](#_toc169285383)
 
 [Projektpräsentation	](#_toc169285388)
 
@@ -57,9 +57,9 @@
 |10\.06.2024|<p>14:30-14:55</p><p>Wir haben heute besprochen, welche Teilaufgaben wir übernehmen. Ausserdem habe ich die Tabelle mit den Datentypen noch ergänz und verbessert. Ausserdem habe ich das Design angepasst, sowie auch das Fazit geschrieben und das Design beschrieben </p><p>14:55-15:00</p><p>Arbeitsjournal für heute erstellt </p><p></p>|<p>14:30-14:55</p><p>Wir haben abgemacht, wer noch alles fertig macht. Und sind die Projektanforderungen noch durchgegangen.<br>Ich habe dann angefangen an den Unit Testes zu arbeiten.</p><p>14:55-15:00</p><p>Arbeitsjournal für heute geschrieben.</p>|<p>14:30-14:55</p><p></p><p>Wir haben heute besprochen, welche Teilaufgaben wir übernehmen. Ausserdem habe ich das Klassendiagramm erstellt und auf Git geladen. </p><p>14:55-15:00</p><p>Arbeitsjournal für heute erstellt </p><p></p>|
 
 ## <a name="_toc169285372"></a>Projektidee
-Wir machen eine eigene Version von Spotify (Keep the Beat), wobei man eigene Playlists erstellen kann.
+Wir machen eine eigene Version von einer Musiksoftware wie Spotify. Unsere Software heisst Keep The Beat und soll dazu dienen .mp3 Datein einfach zu verwalten  und geordnet in Playlists zu speichern.
 ## <a name="_toc169285373"></a>Projektbeschrieb
-Unsere Applikation wird mithilfe von Blazor erstellt und enthaltet mehrere Seiten. Man kann Playlists erstellen, Songs suchen und diese zu einer Playlist hinzufügen. Ausserdem wird es ein Login enthalten, wo man sich ein Konto erstellen kann, und dieses gespeichert wird sowie auch eine Registrierungsfunktion. Alle eingegebenen Daten werden in einer Datenbank gespeichert, die mithilfe von SQL Lite erstellt wird. Das Ziel der Applikation ist es, dass man mithilfe dieser Applikation seine Lieblingslieder schnell und einfach finden kann und man sich organisieren kann. 
+Unsere Applikation wird mithilfe von Blazor erstellt und enthaltet mehrere Seiten. Man kann Playlists erstellen, Songs suchen und diese zu einer Playlist hinzufügen. Natürlich wird es auch ein Musikplayer geben mit dem man die Songs abspielen kann. Der User kann Songs in form von .mp3 Dateien von seinem Computer in das Programm laden. Ausserdem wird es ein Login enthalten, wo man sich ein Konto erstellen kann, und dieses gespeichert wird sowie auch eine Registrierungsfunktion. Jeder User hat seine eigenen Playlists, aber sie Teilen sich die Songs die Hochgeladen werden, so das desto mehr User es gibt desto mehr songs wird das Programm haben. Alle eingegebenen Daten werden in einer Datenbank gespeichert, die mithilfe von SQL Lite erstellt wird. Das Ziel der Applikation ist es, dass man mithilfe dieser Applikation seine Lieblingslieder schnell und einfach finden kann und man sich organisieren kann. 
 ## <a name="_toc169285374"></a>Projektplanung
 
 |Datum |Aufgaben |
@@ -165,10 +165,10 @@ Das Programm hat auch schon Datenbank Funktionen zum hinzufügen von Songs und K
 ### <a name="_toc169285382"></a>Klassendiagramm
 ![Klassendiagramm](Klassendiagramm_KTB.PNG)
 
-### <a name="_toc169285382"></a>ER-Modell
-![A1](images/ER-Diagramm-keepthebeat.JPG)
+### <a name="_toc169285390"></a>ER-Modell
+![ER-Modell](images/ER-Diagramm-keepthebeat.JPG)
 
-### <a name="_toc169285382"></a>Relationales Modell
+### <a name="_toc169285384"></a>Relationales Modell
 ![A2](images/Relationales_Model.png)
 
 
