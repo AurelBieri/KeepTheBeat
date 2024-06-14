@@ -163,7 +163,7 @@ Das Programm hat auch schon Datenbank Funktionen zum hinzufügen von Songs und K
 
 ## <a name="_toc169285381"></a>Implementation
 ### <a name="_toc169285382"></a>Klassendiagramm
-<!--![Ein Bild, das Text, Screenshot, Schrift, Design enthält.-->
+![Klassendiagramm](Klassendiagramm_KTB.PNG)
 
 ## <a name="_toc169285383"></a>Testing
 Wir habe uns dafür entschieden bei unserer Registrationssete die Validierung der eingaben zu Testen. Für das haben wir 8 Unit Test geschrieben welche alle Möglichkeiten von Usereingaben Testen.
