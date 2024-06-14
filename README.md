@@ -165,6 +165,10 @@ Das Programm hat auch schon Datenbank Funktionen zum hinzufügen von Songs und K
 ### <a name="_toc169285382"></a>Klassendiagramm
 ![Klassendiagramm](Klassendiagramm_KTB.PNG)
 
+### <a name="_toc169285382"></a>ER-Modell
+![A1](images/ER-Diagramm-keepthebeat.JPG)
+
+
 ## <a name="_toc169285383"></a>Testing
 Wir habe uns dafür entschieden bei unserer Registrationssete die Validierung der eingaben zu Testen. Für das haben wir 8 Unit Test geschrieben welche alle Möglichkeiten von Usereingaben Testen.
 
