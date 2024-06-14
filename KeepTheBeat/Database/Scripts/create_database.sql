@@ -4,6 +4,7 @@
     lastname TEXT NOT NULL,
     username TEXT NOT NULL UNIQUE,
     email TEXT NOT NULL UNIQUE,
+    birthday TEXT,
     password TEXT NOT NULL
 );
 
@@ -20,7 +21,9 @@ CREATE TABLE IF NOT EXISTS Song (
     Album TEXT,
     IsFavorite INTEGER NOT NULL, 
     ReleaseYear INTEGER,
-    ArtistName TEXT
+    ArtistName TEXT,
+    FileNamen TEXT,
+    FileContent BLOB
 );
 
 CREATE TABLE IF NOT EXISTS ArtistSong (

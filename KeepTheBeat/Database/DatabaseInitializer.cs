@@ -7,6 +7,7 @@ public class DatabaseInitializer
     private static DatabaseInitializer _instance;
     private static readonly object _lock = new object();
     private readonly string _connectionString;
+    private bool IsUpdateavailabel = false;
 
     private DatabaseInitializer(string connectionString)
     {
@@ -40,8 +41,13 @@ public class DatabaseInitializer
 
                 ExecuteScript(connection, scriptDirectory, "create_database.sql");
 
-                //ExecuteScript(connection, scriptDirectory, "update_database.sql");
+                if (IsUpdateavailabel)
+                {
+                    ExecuteScript(connection, scriptDirectory, "update_database.sql");
+                }
 
+                //Wir haben Song Sample Daten schon manuell hinzugefügt.
+                //Das Skript für sample data fügt zwar sample data ein aber fügt keine .mp3 song Dateien ein.
                 //ExecuteScript(connection, scriptDirectory, "insert_sample_data.sql");
             }
         }
