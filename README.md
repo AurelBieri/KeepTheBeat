@@ -170,31 +170,31 @@ Wir habe uns dafür entschieden bei unserer Registrationssete die Validierung de
 
 Der erste Test-Case Prüft, ob die Validate Funktion True zurückgibt, wenn alle Eingaben korrekt sind.
 
-<!--![Ein Bild, das Text, Screenshot, Software enthält.-->
+![T1](images/Test1.png)
 
 Der nächste Test-Case prüft, ob die Validate Funktion False zurückgibt, wenn ein Feld Leer gelassen wird. Wir testen das mit dem Firstname. 
 
-<!--![Ein Bild, das Text, Screenshot, Software enthält.-->
+![T2](images/Test2.png)
 
 Dann haben wir 2 Test-Cases, die überprüfen, ob die Validierung der E-Mail korrekt ist. Also ob die E-Mail im richtigen Format mit @ ist.  
 
-<!--![Ein Bild, das Text, Screenshot, Software enthält.-->
+![T3](images/Test3.png)
 
 Dann müssen wir noch einen Testcase haben der die Validate funktion prüft ob die E-Mail nicht schon verwendet wurde. Für das Verwenden wir ein mockUserService und nicht unser echten Service.
 
-<!--![Ein Bild, das Text, Screenshot, Software enthält.-->
+![T4](images/Test4.png)
 
 Das gleiche müssen wir auch für die Validate funktion machen welche prüft ob der Username nicht schon verwendet wird.
 
-<!--![Ein Bild, das Text, Screenshot, Software enthält.-->
+![T5](images/Test5.png)
 
 Am Schluss müssen wir noch die Validate funktionen des Passwortes Testen. Das machen wir mit 2 Test-Cases. In einem ist das Passwort zu kurz im anderen ist es Lang genug.
 
-<!--![Ein Bild, das Text, Screenshot, Software enthält.-->
+![T6](images/Test6.png)
 
 All diese Test sind erfolgreich wenn man sie Ausführt.
 
-<!--![Ein Bild, das Text, Screenshot, Software enthält.-->
+![T7](images/Test7.png)
 
 ## <a name="_toc169285384"></a>Architektur und Design
 <!--![Ein Bild, das Text, Screenshot, Schrift, Design enthält.-->
