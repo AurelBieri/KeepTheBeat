@@ -1,3 +1,5 @@
+GitHub Note: Das Repository ist nicht Optimal da, es so viele Bilder Beinhaltet und sehr gross ist. Wir mussten es aber so für die Projekt abgabe.
+
 # KeepTheBeat
 ## Keep The Beat von Aurel Bieri, Ana Nikolic und Larissa Fahrni
 ![m1](images/Deckblatt.JPG)
